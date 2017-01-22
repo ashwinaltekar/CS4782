@@ -1,5 +1,6 @@
 # CS4782
-Git Repo for Spring 2017
+<pre> Git Repo for Spring 2017
+
 This file will contain additional details on the different discrete components to complete in Spring 2017.
 
 // These high-level requirements should be the starting point for the features that should be implemented for the project
@@ -22,3 +23,4 @@ Module #1: Front end design (AngularJS)
 
 Module #2: InfoSec framework data schema
   - create framework data classes and objects (stored in DB like Mongo and/or in JSON)
+</pre>
