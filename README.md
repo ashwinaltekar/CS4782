@@ -3,6 +3,7 @@ Git Repo for Spring 2017
 This file will contain additional details on the different discrete components to complete in Spring 2017.
 
 // These high-level requirements should be the starting point for the features that should be implemented for the project
+
 High-Level Requirements:
   - Visual and interactive display of common risk management frameworks and their structure
   - Cross-walk between various frameworks and controls
@@ -14,6 +15,7 @@ High-Level Requirements:
   - Ability to map framework controls to IT functional organizations/departments
 
 // These are a few suggested modules that you can break the work down into
+
 Module #1: Front end design (AngularJS)
   - create the UI layer, what are functional requirements?
   - create layout and style
