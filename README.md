@@ -1,8 +1,7 @@
 # CS4782 - Information Security Framework Master
 Git Repo for UMSL Spring 2017 'Introduction to Cyber Security' class project
 
-<b>// PROJECT DESCRIPTION AND INTENDED USE</b>
-<h1>Problem Statement:</h1>
+<h2>Problem Statement:</h2>
 There exists many information security frameworks and standards (e.g. best practices enumerated by infosec practitioners, private regulations, public regulations, ISACs, etc). These different frameworks and standards ultimately cover a common set of best practice controls (people, process, technology) but simply reorganize the controls in different ways or apply them to different organizational scopes (e.g. risk-based models, compliance mandates, Client requirements).
 
 Most organizations must meet the requirements of multiple security frameworks or standards in order to continue business operations. For example, a public healthcare organization that accepts credit card transactions may need to comply with SOX, HIPAA, HITRUST, and PCI DSS control requirements to reduce the risk of financial loss (e.g. impacts to sales revenue or margin erosion through operational overhead).
@@ -19,9 +18,10 @@ This project is intended for Corporate Information Security Professionals that s
 
 This file will contain additional details on the different discrete components to complete in Spring 2017.
 
+
+<h2>Detailed Features that probably need to go in to the backlog:</h2>
 // These high-level requirements should be the starting point for the features that will be implemented for the project
 
-High-Level Requirements:
   - Visual and interactive display of common risk management frameworks and their structure
   - Cross-walk between various frameworks and controls
   - Ability to customize a a pre-defined security framework
