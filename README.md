@@ -8,5 +8,3 @@ Module #1: Front end design (AngularJS)
 
 Module #2: InfoSec framework data schema
   - create framework data classes and objects (stored in DB like Mongo and/or in JSON)
-
-Module #3: Data input of framework details
