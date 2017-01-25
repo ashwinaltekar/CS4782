@@ -18,6 +18,19 @@ This project is intended for Corporate Information Security Professionals that s
 
 This file will contain additional details on the different discrete components to complete in Spring 2017.
 
+<b> Proposed milestones to achieve the above requirements -- </b>
+
+Week 2 and 3:                         // start now! (Jan 25, 2017)
+Create an HTML/JavaScript application that lists out the NIST CyberSecurity Framework (CSF) hierarchically; in the case of NIST CSF, this is (function->category->subcategory->informative_references). You should be able to expand and collapse each parent and child element. Use a JSON (.json) file to store the data.
+
+Hints:
+  - NIST CSF documentation can be found here: https://www.nist.gov/cyberframework/csf-reference-tool
+  - JSON: http://www.json.org/
+  - Use this site to learn more about each language/technology: http://www.w3schools.com/
+  - Example of hierarchical view: https://drive.google.com/open?id=0B98llBjblu-tUUxBRzBEeHVBWTQ
+
+Week 4:
+
 
 <h2>Detailed Features that probably need to go in to the backlog:</h2>
 // These high-level requirements should be the starting point for the features that will be implemented for the project
