@@ -20,9 +20,9 @@ This file will contain additional details on the different discrete components t
 
 <b> Proposed milestones to achieve the above requirements -- </b>
 
-Week 2 and 3:                         // start now! (Jan 25, 2017)
+Week 2 and 3:                         // start now! (Jan 25, 2017) <br>
 Create an HTML/JavaScript application that lists out the NIST CyberSecurity Framework (CSF) hierarchically; in the case of NIST CSF, this is (function->category->subcategory->informative_references). You should be able to expand and collapse each parent and child element. Use a JSON (.json) file to store the data.
-
+<br>
 Hints:
   - NIST CSF documentation can be found here: https://www.nist.gov/cyberframework/csf-reference-tool
   - JSON: http://www.json.org/
