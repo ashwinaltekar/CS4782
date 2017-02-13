@@ -3,7 +3,7 @@
     "uId":"ID",
     "name":"Identify",
     "description":"",
-    "children":[
+    "subCollection":[
 
     ]
   },
@@ -11,7 +11,7 @@
     "uId":"PR",
     "name":"Protect",
     "description":"",
-    "children":[
+    "subCollection":[
 
     ]
   },
@@ -19,7 +19,7 @@
     "uId":"DE",
     "name":"Detect",
     "description":"",
-    "children":[
+    "subCollection":[
 
     ]
   },
@@ -27,7 +27,7 @@
     "uId":"RS",
     "name":"Respond",
     "description":"",
-    "children":[
+    "subCollection":[
 
     ]
   },
@@ -35,21 +35,21 @@
     "uId":"RC",
     "name":"Recover",
     "description":"Recover Desc",
-    "children":[
+    "subCollection":[
       {
         "uId":"RC.RP",
         "name":"Recovery Planning",
         "description":"Recovery Planning Desc",
-        "children":[
+        "subCollection":[
           {
             "uId":"RC.RP-1",
             "name":"RC.RP-1",
             "description":"Recovery plan is executed during or after an event.",
-            "children":[
+            "subCollection":[
               {
                 "uId":"CCS CSC",
                 "name":"CCS CSC",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"8",
                     "name":"8"
@@ -59,7 +59,7 @@
               {
                 "uId":"COBIT 5",
                 "name":"COBIT 5",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"DSS02.05",
                     "name":"DSS02.05"
@@ -73,7 +73,7 @@
               {
                 "uId":"ISO/IEC 27001:2013",
                 "name":"ISO/IEC 27001:2013",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"A.16.1.5",
                     "name":"A.16.1.5"
@@ -83,7 +83,7 @@
               {
                 "uId":"NIST SP 800-53 Rev. 4",
                 "name":"NIST SP 800-53 Rev. 4",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"CP-2",
                     "name":"CP-2"
@@ -106,16 +106,16 @@
         "uId":"RC.IM",
         "name":"Improvements",
         "description":"Recovery planning and processes are improved by incorporating lessons learned into future activities.",
-        "children":[
+        "subCollection":[
           {
             "uId":"RC.IM-1",
             "name":"RC.IM-1",
             "description":"Recovery plans incorporate lessons learned.",
-            "children":[
+            "subCollection":[
               {
                 "uId":"COBIT 5",
                 "name":"COBIT 5",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"BAI05.07",
                     "name":"BAI05.07"
@@ -125,7 +125,7 @@
               {
                 "uId":"ISA 62443-2-1",
                 "name":"ISA 62443-2-1",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"4.4.3.4",
                     "name":"4.4.3.4"
@@ -135,7 +135,7 @@
               {
                 "uId":"NIST SP 800-53 Rev. 4",
                 "name":"NIST SP 800-53 Rev. 4",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"CP-2",
                     "name":"CP-2"
@@ -156,11 +156,11 @@
             "uId":"RC.IM-2",
             "name":"RC.IM-2",
             "description":"Recovery strategies are updated.",
-            "children":[
+            "subCollection":[
               {
                 "uId":"COBIT 5",
                 "name":"COBIT 5",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"BAI07.08",
                     "name":"BAI07.08"
@@ -170,7 +170,7 @@
               {
                 "uId":"NIST SP 800-53 Rev. 4",
                 "name":"NIST SP 800-53 Rev. 4",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"CP-2",
                     "name":"CP-2"
@@ -193,16 +193,16 @@
         "uId":"RC.CO",
         "name":"Communications",
         "description":"Restoration activities are coordinated with internal and external parties, such as coordinating centers, Internet Service Providers, owners of attacking systems, victims, other CSIRTs, and vendors.",
-        "children":[
+        "subCollection":[
           {
             "uId":"RC.CO-1",
             "name":"RC.CO-1",
             "description":"Public relations are managed.",
-            "children":[
+            "subCollection":[
               {
                 "uId":"COBIT 5",
                 "name":"COBIT 5",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"EDM03.02",
                     "name":"EDM03.02"
@@ -215,11 +215,11 @@
             "uId":"RC.CO-2",
             "name":"RC.CO-2",
             "description":"Reputation after an event is repaired.",
-            "children":[
+            "subCollection":[
               {
                 "uId":"COBIT 5",
                 "name":"COBIT 5",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"MEA03.02",
                     "name":"MEA03.02"
@@ -232,11 +232,11 @@
             "uId":"RC.CO-3",
             "name":"RC.CO-3",
             "description":"Recovery activities are communicated to internal stakeholders and executive and management teams.",
-            "children":[
+            "subCollection":[
               {
                 "uId":"NIST SP 800-53 Rev. 4",
                 "name":"NIST SP 800-53 Rev. 4",
-                "children":[
+                "subCollection":[
                   {
                     "uId":"CP-2",
                     "name":"CP-2"
