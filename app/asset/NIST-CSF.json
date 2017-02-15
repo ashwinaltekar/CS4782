@@ -1,2102 +1,1530 @@
-[
-  { 
-    "uId":"ID",
-    "name":"Identify",
-    "description":"",
-    "children":[ 
+[{
+  "uId": "ID",
+  "name": "Identify",
+  "description": "",
+  "children": [
 
-    ]
-  },
-  {
-    "uId":"PR",
-    "name":"Protect",
-    "description":"",
-    "children":[
+  ]
+}, {
+  "uId": "PR",
+  "name": "Protect",
+  "description": "",
+  "children": [
 
-    ]
-  }, 
-  {
-    "uId":"DE",
-    "name":"Detect",
-    "description":"",
-    "children": [
-      { 
-        "uId":"DE.AE",
-        "name":"Anomalies and Events",
-        "description":"Anomalous activity is detected in a timely manner and the potential impact of events is understood.",
-        "children":[
-          { "uId":"DE.AE-1",
-            "name":"DE.AE-1",
-            "description":"A baseline of network operations and expected data flows for users and systems is established and managed",
-            "children":[
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"DSS03.01",
-                    "name":"DSS03.01"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-2-1:2009 ",
-                "name":"ISA 62443-2-1:2009 ",
-                "children":[
-                  {
-                    "uId":"4.4.3.3",
-                    "name":"4.4.3.3"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"AC-4",
-                    "name":"AC-4"
-                  },
-                  {
-                    "uId":"CA-3",
-                    "name":"CA-3"
-                  },
-                  {
-                    "uId":"CM-2",
-                    "name":"CM-2"
-                  },
-                  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ] 
-          }, 
-		  { "uId":"DE.AE-2",
-            "name":"DE.AE-2",
-            "description":"Detected events are analyzed to understand attack targets and methods",
-            "children":[
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.6",
-                    "name":"4.3.4.5.6"
-                  },
-                  {
-                    "uId":"4.3.4.5.7",
-                    "name":"4.3.4.5.7"
-                  },
-                  {
-                    "uId":"4.3.4.5.8",
-                    "name":"4.3.4.5.8"
-                  }
-                ]
-              },
-			  {
-                "uId":"ISA 62443-3-3:2013",
-                "name":"ISA 62443-3-3:2013",
-                "children":[
-                  {
-                    "uId":"SR 2.8",
-                    "name":"SR 2.8"
-                  },
-				  {
-                    "uId":"SR 2.9",
-                    "name":"SR 2.9"
-                  },
-				  {
-                    "uId":"SR 2.10",
-                    "name":"SR 2.10"
-                  },
-				  {
-                    "uId":"SR 2.11",
-                    "name":"SR 2.11"
-                  },
-				  {
-                    "uId":"SR 2.12",
-                    "name":"SR 2.12"
-                  },
-                  {
-                    "uId":"SR 3.9",
-                    "name":"SR 3.9"
-                  },
-                  {
-                    "uId":"SR 6.1",
-                    "name":"SR 6.1"
-                  },
-				  {
-                    "uId":"SR 6.2",
-                    "name":"SR 6.2"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.16.1.1",
-                    "name":"A.16.1.1"
-                  },
-                  {
-                    "uId":"A.16.1.4",
-                    "name":"A.16.1.4"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"AU-6",
-                    "name":"AU-6"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ]
-          },
-		  { "uId":"DE.AE-3",
-            "name":"DE.AE-3",
-            "description":"Event data are aggregated and correlated from multiple sources and sensors",
-            "children":[
-			  {
-                "uId":"ISA 62443-3-3:2013",
-                "name":"ISA 62443-3-3:2013",
-                "children":[
-                  {
-                    "uId":"SR 6.1",
-                    "name":"SR 6.1"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"AU-6",
-                    "name":"AU-6"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-				   {
-                    "uId":"IR-5",
-                    "name":"IR-5"
-                  },
-				  {
-                    "uId":"IR-8",
-                    "name":"IR-8"
-                  },
-                  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ]
-          },
-		   { "uId":"DE.AE-4",
-            "name":"DE.AE-4",
-            "description":"Impact of events is determined",
-            "children":[
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"APO12.06",
-                    "name":"APO12.06"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":"RA-3",
-                    "name":"RA-3"
-                  },
-                  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ] 
-          }, 
-		  { "uId":"DE.AE-5",
-            "name":"DE.AE-5",
-            "description":"Incident alert thresholds are established",
-            "children":[
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"APO12.06",
-                    "name":"APO12.06"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-2-1:2009 ",
-                "name":"ISA 62443-2-1:2009 ",
-                "children":[
-                  {
-                    "uId":"4.2.3.10",
-                    "name":"4.2.3.10"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":"IR-5",
-                    "name":"IR-5"
-                  },
-                  {
-                    "uId":"IR-8",
-                    "name":"IR-8"
-                  }
-                ]
-              }
-            ] 
-          }, 
-		]
-      }, 
-	  {
-        "uId":"DE.CM",
-        "name":"Security Continuous Monitoring",
-        "description":"The information system and assets are monitored at discrete intervals to identify cybersecurity events and verify the effectiveness of protective measures.",
-        "children":[
-          { "uId":"DE.CM-1",
-            "name":"DE.CM-1",
-            "description":"The network is monitored to detect potential cybersecurity events",
-            "children":[
-              {
-                "uId":"CCS CSC",
-                "name":"CCS CSC",
-                "children":[
-                  {
-                    "uId":"14",
-                    "name":"14"
-                  },
-                  {
-                    "uId":"16",
-                    "name":"16"
-                  }
-                ]
-              },
-			  {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"DSS02.07",
-                    "name":"DSS02.07"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-3-3:2013",
-                "name":"ISA 62443-3-3:2013",
-                "children":[
-                  {
-                    "uId":"SR 6.2",
-                    "name":"SR 6.2"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"AC-2",
-                    "name":"AC-2"
-                  },
-				  {
-                    "uId":"AU-12",
-                    "name":"AU-12"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"CM-3",
-                    "name":"CM-3"
-                  },
-                  {
-                    "uId":"SC-5",
-                    "name":"SC-5"
-                  },
-				  {
-                    "uId":"SC-7",
-                    "name":"SC-7"
-                  },
-				  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ]
-          }, 
-          { "uId":"DE.CM-2",
-            "name":"DE.CM-2",
-            "description":"The physical environment is monitored to detect potential cybersecurity events",
-            "children":[
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.3.3.8",
-                    "name":"4.3.3.3.8"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"PE-3",
-                    "name":"PE-3"
-                  },
-				  {
-                    "uId":"PE-6",
-                    "name":"PE-6"
-                  },
-                  {
-                    "uId":"PE-20",
-                    "name":"PE-20"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"DE.CM-3",
-            "name":"DE.CM-3",
-            "description":"Personnel activity is monitored to detect potential cybersecurity events",
-            "children":[
-              {
-                "uId":"ISA 62443-3-3:2013",
-                "name":"ISA 62443-3-3:2013",
-                "children":[
-                  {
-                    "uId":"SR 6.2",
-                    "name":"SR 6.2"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.12.4.1",
-                    "name":"A.12.4.1"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"AC-2",
-                    "name":"AC-2"
-                  },
-                  {
-                    "uId":"AU-12",
-                    "name":"AU-12"
-                  },
-                  {
-                    "uId":"AU-13",
-                    "name":"AU-13"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"CM-10",
-                    "name":"CM-10"
-                  },
-                  {
-                    "uId":"CM-11",
-                    "name":"CM-11"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"DE.CM-4",
-            "name":"DE.CM-4",
-            "description":"Malicious code is detected",
-            "children": [
-			  {
-                "uId":"CCS CSC",
-                "name":"CCS CSC",
-                "children":[
-                  {
-                    "uId":"5",
-                    "name":"5"
-                  }
-                ]
-              },
-			  {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"DSS05.01",
-                    "name":"DSS05.01"
-                  }
-                ]
-              },
-			  {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.4.3.8",
-                    "name":"4.3.4.3.8"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-3-3:2013",
-                "name":"ISA 62443-3-3:2013",
-                "children":[
-                  {
-                    "uId":"SR 3.2",
-                    "name":"SR 3.2"
-                  }
-                ]
-              },
-			  {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.12.2.1",
-                    "name":"A.12.2.1"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"SI-3",
-                    "name":"SI-3"
-                  }
-                ]
-              }
-            ] 
-          },
-          { "uId":"DE.CM-5",
-            "name":"DE.CM-5",
-            "description":"Unauthorized mobile code is detected",
-            "children":[
-			  {
-                "uId":"ISA 62443-3-3:2013",
-                "name":"ISA 62443-3-3:2013",
-                "children":[
-                  {
-                    "uId":"SR 2.4",
-                    "name":"SR 2.4"
-                  }
-                ]
-              },
-			  {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.12.5.1",
-                    "name":"A.12.5.1"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"SC-18",
-                    "name":"SC-18"
-                  },
-                  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  },
-				  {
-                    "uId":"SC-44",
-                    "name":"SC-44"
-                  }
-                ]
-              }
-            ]
-          }, 
-		   { "uId":"DE.CM-6",
-            "name":"DE.CM-6",
-            "description":"External service provider activity is monitored to detect potential cybersecurity events",
-            "children":[
-			  {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"APO07.06",
-                    "name":"APO07.06"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.14.2.7",
-                    "name":"A.14.2.7"
-                  },
-				  {
-                    "uId":"A.15.2.1",
-                    "name":"A.15.2.1"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"PS-7",
-                    "name":"PS-7"
-                  },
-                  {
-                    "uId":"SA-4",
-                    "name":"SA-4"
-                  },
-				  {
-                    "uId":"SA-9",
-                    "name":"SA-9"
-                  },
-				  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ]
-          },
-		  { "uId":"DE.CM-7",
-            "name":"DE.CM-7",
-            "description":"Monitoring for unauthorized personnel, connections, devices, and software is performed",
-            "children":[
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-				  {
-                    "uId":"AU-12",
-                    "name":"AU-12"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"CM-3",
-                    "name":"CM-3"
-                  },
-                  {
-                    "uId":"CM-8",
-                    "name":"CM-8"
-                  },
-				  {
-                    "uId":"PE-3",
-                    "name":"PE-3"
-                  },
-				  {
-                    "uId":"PE-6",
-                    "name":"PE-6"
-                  },
-				  {
-                    "uId":"PE-20",
-                    "name":"PE-20"
-                  },
-				  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ]
-          }, 
-		  { "uId":"DE.CM-8",
-            "name":"DE.CM-8",
-            "description":"Vulnerability scans are performed",
-            "children":[
-			  {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"BAI03.10",
-                    "name":"BAI03.10"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.2.3.1",
-                    "name":"4.2.3.1"
-                  },
-				  {
-                    "uId":"4.2.3.7",
-                    "name":"4.2.3.7"
-                  }
-                ]
-              },
-			  {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.12.6.1",
-                    "name":"A.12.6.1"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"RA-5",
-                    "name":"RA-5"
-                  }
-                ]
-              }
-            ]
-          } 
-        ]
-      }, 
-      {
-        "uId":"DE.DP",
-        "name":"Detection Processes",
-        "description":"Detection processes andprocedures are maintained and tested to ensure timely and adequate awareness of anomalous events.",
-        "children":[
-          { "uId":"DE.DP-1",
-            "name":"DE.DP-1",
-            "description":"Roles and responsibilities for detection are well defined to ensure accountability",
-            "children":[
-			  {
-                "uId":"CCS CSC",
-                "name":"CCS CSC",
-                "children":[
-                  {
-                    "uId":"5",
-                    "name":"5"
-                  }
-                ]
-              },	
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"DSS05.01",
-                    "name":"DSS05.01"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-2-1:2009 ",
-                "name":"ISA 62443-2-1:2009 ",
-                "children":[
-                  {
-                    "uId":"4.4.3.1",
-                    "name":"4.4.3.1"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.6.1.1",
-                    "name":"A.6.1.1"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CA-2",
-                    "name":"CA-2"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"PM-14",
-                    "name":"PM-14"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"DE.DP-2",
-            "name":"DE.DP-2",
-            "description":"Detection activities comply with all applicable requirements",
-            "children":[
-              {
-                "uId":"ISA 62443-2-1:2009 ",
-                "name":"ISA 62443-2-1:2009 ",
-                "children":[
-                  {
-                    "uId":"4.4.3.2",
-                    "name":"4.4.3.2"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.18.1.4",
-                    "name":"A.18.1.4"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CA-2",
-                    "name":"CA-2"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-				  {
-                    "uId":"PM-14",
-                    "name":"PM-14"
-                  },
-				  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"DE.DP-3",
-            "name":"DE.DP-3",
-            "description":"Detection processes are tested",
-            "children":[
-			  {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"APO13.02",
-                    "name":"APO13.02"
-                  }
-                ]
-              },
-			  {
-                "uId":"ISA 62443-2-1:2009 ",
-                "name":"ISA 62443-2-1:2009 ",
-                "children":[
-                  {
-                    "uId":"4.4.3.2",
-                    "name":"4.4.3.2"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-3-3:2013",
-                "name":"ISA 62443-3-3:2013",
-                "children":[
-                  {
-                    "uId":"SR 3.3",
-                    "name":"SR 3.3"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.14.2.8",
-                    "name":"A.14.2.8"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-				  {
-                    "uId":"CA-2",
-                    "name":"CA-2"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-				  {
-                    "uId":"PE-3",
-                    "name":"PE-3"
-                  },
-                  {
-                    "uId":"PM-14",
-                    "name":"PM-14"
-                  },
-                  {
-                    "uId":"SI-3",
-                    "name":"SI-3"
-                  },
-				  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"DE.DP-4",
-            "name":"DE.DP-4",
-            "description":"Event detection information is communicated to appropriate parties",
-            "children":[
-			  {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"APO12.06",
-                    "name":"APO12.06"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.9",
-                    "name":"4.3.4.5.9"
-                  }
-                ]
-              },
-			  {
-                "uId":"ISA 62443-3-3:2013",
-                "name":"ISA 62443-3-3:2013",
-                "children":[
-                  {
-                    "uId":"SR 6.1",
-                    "name":"SR 6.1"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.16.1.2",
-                    "name":"A.16.1.2"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-				  {
-                    "uId":"AU-6",
-                    "name":"AU-6"
-                  },
-				  {
-                    "uId":"CA-2",
-                    "name":"CA-2"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"RA-5",
-                    "name":"RA-5"
-                  },
-                  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ]
-          },
-		  { "uId":"DE.DP-5",
-            "name":"DE.DP-5",
-            "description":"Detection processes are continuously improved",
-            "children":[
-			  {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"APO11.06",
-                    "name":"APO11.06"
-                  },
-				  {
-                    "uId":"DSS04.05",
-                    "name":"DSS04.05"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.4.3.4",
-                    "name":"4.4.3.4"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.16.1.6",
-                    "name":"A.16.1.6"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-				  {
-                    "uId":"CA-2",
-                    "name":"CA-2"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"PL-2",
-                    "name":"PL-2"
-                  },
-                  {
-                    "uId":"RA-5",
-                    "name":"RA-5"
-                  },
-                  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  },
-                  {
-                    "uId":"PM-14",
-                    "name":"PM-14"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      } 
-	] 
-  }, 
-  {
-    "uId":"RS",
-    "name":"Respond",
-    "description":"",
-    "children":[
-      { 
-        "uId":"RS.RP",
-        "name":"Respone Planning",
-        "description":"Response processes and procedures are executed and maintained, to ensure timely response to detected cybersecurity events.",
-        "children":[
-          { "uId":"RS.RP-1",
-            "name":"RS.RP-1",
-            "description":"Response plan is executed during or after an event",
-            "children":[
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"BAI01.10",
-                    "name":"BAI01.10"
-                  }
-                ]
-              },
-              {
-                "uId":"CCS CSC",
-                "name":"CCS CSC",
-                "children":[
-                  {
-                    "uId":"18",
-                    "name":"18"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-2-1:2009 ",
-                "name":"ISA 62443-2-1:2009 ",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.1",
-                    "name":"4.3.4.5.1"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.16.1.5",
-                    "name":"A.16.1.5"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":"CP-10",
-                    "name":"CP-10"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":"IR-8",
-                    "name":"IR-8"
-                  }
-                ]
-              }
-            ] 
-          } 
-		] 
-      }, 
-	  {
-        "uId":"RS.CO",
-        "name":"Communications",
-        "description":"Response activities are coordinated with internal and external stakeholders, as appropriate, to include external support from law enforcement agencies.",
-        "children":[
-          { "uId":"RS.CO-1",
-            "name":"RS.CO-1",
-            "description":"Personnel know their roles and order of operations when a response is needed",
-            "children":[
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.2",
-                    "name":"4.3.4.5.2"
-                  },
-                  {
-                    "uId":"4.3.4.5.3",
-                    "name":"4.3.4.5.3"
-                  },
-                  {
-                    "uId":"4.3.4.5.4",
-                    "name":"4.3.4.5.4"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.6.1.1",
-                    "name":"A.6.1.1"
-                  },
-                  {
-                    "uId":"A.16.1.1",
-                    "name":"A.16.1.1"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":"CP-3",
-                    "name":"CP-3"
-                  },
-                  {
-                    "uId":"IR-3",
-                    "name":"IR-3"
-                  },
-                  {
-                    "uId":"IR-8",
-                    "name":"IR-8"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"RS.CO-2",
-            "name":"RS.CO-2",
-            "description":"Events are reported consistent with established criteria",
-            "children":[
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.5",
-                    "name":"4.3.4.5.5"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.6.1.3",
-                    "name":"A.6.1.3"
-                  },
-                  {
-                    "uId":"A.16.1.2",
-                    "name":"A.16.1.2"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"AU-6",
-                    "name":"AU-6"
-                  },
-                  {
-                    "uId":"IR-6",
-                    "name":"IR-6"
-                  },
-                  {
-                    "uId":"IR-8",
-                    "name":"IR-8"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"RS.CO-3",
-            "name":"RS.CO-3",
-            "description":"Information is shared consistent with response plans",
-            "children":[
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.2",
-                    "name":"4.3.4.5.2"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.16.1.2",
-                    "name":"A.16.1.2"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":" CA-2",
-                    "name":"CA-2"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":" IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":" IR-8",
-                    "name":"IR-8"
-                  },
-                  {
-                    "uId":"PE-6",
-                    "name":"PE-6"
-                  },
-                  {
-                    "uId":"RA-5",
-                    "name":"RA-5"
-                  },
-                  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"RS.CO-4",
-            "name":"RS.CO-4",
-            "description":"Coordination with stakeholders occurs consistent with response plans",
-            "children":[
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.5",
-                    "name":"4.3.4.5.5"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":" AU-6",
-                    "name":"AU-6"
-                  },
-                  {
-                    "uId":" IR-6",
-                    "name":"IR-6"
-                  },
-                  {
-                    "uId":" IR-8",
-                    "name":"IR-8"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"RS.CO-5",
-            "name":"RS.CO-5",
-            "description":"Voluntary information sharing occurs with external stakeholders to achieve broader cybersecurity situational awareness",
-            "children":[
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"PM-15",
-                    "name":"PM-15"
-                  },
-                  {
-                    "uId":"SI-5",
-                    "name":"SI-5"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }, 
-      {
-        "uId":"RS.AN",
-        "name":"Analysis",
-        "description":"Analysis is conducted to ensure adequate response and support recovery activities.",
-        "children":[
-          { "uId":"RS.AN-1",
-            "name":"RS.AN-1",
-            "description":"Notifications from detection systems are investigated",
-            "children":[
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"DSS02.07",
-                    "name":"DSS02.07"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-2-1:2009 ",
-                "name":"ISA 62443-2-1:2009 ",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.6",
-                    "name":"4.3.4.5.6"
-                  },
-                  {
-                    "uId":"4.3.4.5.7",
-                    "name":"4.3.4.5.7"
-                  },
-                  {
-                    "uId":"4.3.4.5.8",
-                    "name":"4.3.4.5.8"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-3-3:2013",
-                "name":"ISA 62443-3-3:2013",
-                "children":[
-                  {
-                    "uId":"SR 6.1",
-                    "name":"SR 6.1"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.12.4.1",
-                    "name":"A.12.4.1"
-                  },
-                  {
-                    "uId":"A.12.4.3",
-                    "name":"A.12.4.3"
-                  },
-                  {
-                    "uId":"A.16.1.5",
-                    "name":"A.16.1.5"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"AU-6",
-                    "name":"AU-6"
-                  },
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":"IR-5",
-                    "name":"IR-5"
-                  },
-                  {
-                    "uId":"PE-6",
-                    "name":"PE-6"
-                  },
-                  {
-                    "uId":"SI-4",
-                    "name":"SI-4"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"RS.AN-2",
-            "name":"RS.AN-2",
-            "description":"The impact of the incident is understood",
-            "children":[
-              {
-                "uId":"ISA 62443-2-1:2009 ",
-                "name":"ISA 62443-2-1:2009 ",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.6",
-                    "name":"4.3.4.5.6"
-                  },
-                  {
-                    "uId":"4.3.4.5.7",
-                    "name":"4.3.4.5.7"
-                  },
-                  {
-                    "uId":"4.3.4.5.8",
-                    "name":"4.3.4.5.8"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.16.1.6",
-                    "name":"A.16.1.6"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"RS.AN-3",
-            "name":"RS.AN-3",
-            "description":"Forensics are performed",
-            "children":[
-              {
-                "uId":"ISA 62443-3-3:2013",
-                "name":"ISA 62443-3-3:2013",
-                "children":[
-                  {
-                    "uId":"SR 2.8",
-                    "name":"SR 2.8"
-                  },
-                  {
-                    "uId":"SR 2.9",
-                    "name":"SR 2.9"
-                  },
-                  {
-                    "uId":"SR 2.10",
-                    "name":"SR 2.10"
-                  },
-                  {
-                    "uId":"SR 2.11",
-                    "name":"SR 2.11"
-                  },
-                  {
-                    "uId":"SR 2.12",
-                    "name":"SR 2.12"
-                  },
-                  {
-                    "uId":"SR 3.9",
-                    "name":"SR 3.9"
-                  },
-                  {
-                    "uId":"SR 6.1",
-                    "name":"SR 6.1"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.16.1.7",
-                    "name":"A.16.1.7"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"AU-7",
-                    "name":"AU-7"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"RS.AN-4",
-            "name":"RS.AN-4",
-            "description":"Incidents are categorized consistent with response plans",
-            "children":[
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.6",
-                    "name":"4.3.4.5.6"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.16.1.4",
-                    "name":"A.16.1.4"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":"IR-5",
-                    "name":"IR-5"
-                  },
-                  {
-                    "uId":"IR-8",
-                    "name":"IR-8"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }, 
-      {
-        "uId":"RS.MI",
-        "name":"Mitigation",
-        "description":"Activities are performed to prevent expansion of an event, mitigate its effects, and eradicate the incident.",
-        "children":[
-          { "uId":"RS.MI-1",
-            "name":"RS.MI-1",
-            "description":"Incidents are contained",
-            "children":[
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.6",
-                    "name":"4.3.4.5.6"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-3-3:2013",
-                "name":"ISA 62443-3-3:2013",
-                "children":[
-                  {
-                    "uId":"SR 5.1",
-                    "name":"SR 5.1"
-                  },
-                  {
-                    "uId":"SR 5.2",
-                    "name":"SR 5.2"
-                  },
-                  {
-                    "uId":"SR 5.4",
-                    "name":"SR 5.4"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.16.1.5",
-                    "name":"A.16.1.5"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"RS.MI-2",
-            "name":"RS.MI-2",
-            "description":"Incidents are mitigated",
-            "children":[
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.6",
-                    "name":"4.3.4.5.6"
-                  },
-                  {
-                    "uId":"4.3.4.5.10",
-                    "name":"4.3.4.5.10"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.12.2.1",
-                    "name":"A.12.2.1"
-                  },
-                  {
-                    "uId":"A.16.1.5",
-                    "name":"A.16.1.5"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"RS.MI-3",
-            "name":"RS.MI-3",
-            "description":"Newly identified vulnerabilities are mitigated or documented as accepted risks",
-            "children":[
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.12.6.1",
-                    "name":"A.12.6.1"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CA-7",
-                    "name":"CA-7"
-                  },
-                  {
-                    "uId":"RA-3",
-                    "name":"RA-3"
-                  },
-                  {
-                    "uId":"RA-5",
-                    "name":"RA-5"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }, 
-      {
-        "uId":"RS.IM",
-        "name":"Improvements",
-        "description":"Organizational response activities are improved by incorporating lessons learned from current and previous detection/response activities.",
-        "children":[
-          { "uId":"RS.IM-1",
-            "name":"RS.IM-1",
-            "description":"Response plans incorporate lessons learned",
-            "children":[
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"BAI01.13",
-                    "name":"BAI01.13"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-2-1:2009",
-                "name":"ISA 62443-2-1:2009",
-                "children":[
-                  {
-                    "uId":"4.3.4.5.10",
-                    "name":"4.3.4.5.10"
-                  },
-                  {
-                    "uId":"4.4.3.4",
-                    "name":"4.4.3.4"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.16.1.6",
-                    "name":"A.16.1.6"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":"IR-8",
-                    "name":"IR-8"
-                  }
-                ]
-              }
-            ]
-          },
-          { "uId":"RS.IM-2",
-            "name":"RS.IM-2",
-            "description":"Response strategies are updated",
-            "children":[
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":"IR-8",
-                    "name":"IR-8"
-                  }
-                ]
-              }
-            ]
-          }
-        ] 
-      } 
-	] 
-  }, 
-  {
-    "uId":"RC",
-    "name":"Recover",
-    "description":"Recover Desc",
-    "children":[
-      {
-        "uId":"RC.RP",
-        "name":"Recovery Planning",
-        "description":"Recovery Planning Desc",
-        "children":[
-          {
-            "uId":"RC.RP-1",
-            "name":"RC.RP-1",
-            "description":"Recovery plan is executed during or after an event.",
-            "children":[
-              {
-                "uId":"CCS CSC",
-                "name":"CCS CSC",
-                "children":[
-                  {
-                    "uId":"8",
-                    "name":"8"
-                  }
-                ]
-              },
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"DSS02.05",
-                    "name":"DSS02.05"
-                  },
-                  {
-                    "uId":"DSS03.04",
-                    "name":"DSS03.04"
-                  }
-                ]
-              },
-              {
-                "uId":"ISO/IEC 27001:2013",
-                "name":"ISO/IEC 27001:2013",
-                "children":[
-                  {
-                    "uId":"A.16.1.5",
-                    "name":"A.16.1.5"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":"IR-8",
-                    "name":"IR-8"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "uId":"RC.IM",
-        "name":"Improvements",
-        "description":"Recovery planning and processes are improved by incorporating lessons learned into future activities.",
-        "children":[
-          {
-            "uId":"RC.IM-1",
-            "name":"RC.IM-1",
-            "description":"Recovery plans incorporate lessons learned.",
-            "children":[
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"BAI05.07",
-                    "name":"BAI05.07"
-                  }
-                ]
-              },
-              {
-                "uId":"ISA 62443-2-1",
-                "name":"ISA 62443-2-1",
-                "children":[
-                  {
-                    "uId":"4.4.3.4",
-                    "name":"4.4.3.4"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":"IR-8",
-                    "name":"IR-8"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "uId":"RC.IM-2",
-            "name":"RC.IM-2",
-            "description":"Recovery strategies are updated.",
-            "children":[
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"BAI07.08",
-                    "name":"BAI07.08"
-                  }
-                ]
-              },
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  },
-                  {
-                    "uId":"IR-8",
-                    "name":"IR-8"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "uId":"RC.CO",
-        "name":"Communications",
-        "description":"Restoration activities are coordinated with internal and external parties, such as coordinating centers, Internet Service Providers, owners of attacking systems, victims, other CSIRTs, and vendors.",
-        "children":[
-          {
-            "uId":"RC.CO-1",
-            "name":"RC.CO-1",
-            "description":"Public relations are managed.",
-            "children":[
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"EDM03.02",
-                    "name":"EDM03.02"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "uId":"RC.CO-2",
-            "name":"RC.CO-2",
-            "description":"Reputation after an event is repaired.",
-            "children":[
-              {
-                "uId":"COBIT 5",
-                "name":"COBIT 5",
-                "children":[
-                  {
-                    "uId":"MEA03.02",
-                    "name":"MEA03.02"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "uId":"RC.CO-3",
-            "name":"RC.CO-3",
-            "description":"Recovery activities are communicated to internal stakeholders and executive and management teams.",
-            "children":[
-              {
-                "uId":"NIST SP 800-53 Rev. 4",
-                "name":"NIST SP 800-53 Rev. 4",
-                "children":[
-                  {
-                    "uId":"CP-2",
-                    "name":"CP-2"
-                  },
-                  {
-                    "uId":"IR-4",
-                    "name":"IR-4"
-                  }
-                ]
-              }
-            ]
-          } 
-        ] 
-      } 
-    ] 
-  }
-] 
+  ]
+}, {
+  "uId": "DE",
+  "name": "Detect",
+  "description": "",
+  "children": [{
+    "uId": "DE.AE",
+    "name": "Anomalies and Events",
+    "description": "Anomalous activity is detected in a timely manner and the potential impact of events is understood.",
+    "children": [{
+      "uId": "DE.AE-1",
+      "name": "DE.AE-1",
+      "description": "A baseline of network operations and expected data flows for users and systems is established and managed",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "DSS03.01",
+          "name": "DSS03.01"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1:2009 ",
+        "name": "ISA 62443-2-1:2009 ",
+        "children": [{
+          "uId": "4.4.3.3",
+          "name": "4.4.3.3"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "AC-4",
+          "name": "AC-4"
+        }, {
+          "uId": "CA-3",
+          "name": "CA-3"
+        }, {
+          "uId": "CM-2",
+          "name": "CM-2"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "DE.AE-2",
+      "name": "DE.AE-2",
+      "description": "Detected events are analyzed to understand attack targets and methods",
+      "children": [{
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.4.5.6",
+          "name": "4.3.4.5.6"
+        }, {
+          "uId": "4.3.4.5.7",
+          "name": "4.3.4.5.7"
+        }, {
+          "uId": "4.3.4.5.8",
+          "name": "4.3.4.5.8"
+        }]
+      }, {
+        "uId": "ISA 62443-3-3:2013",
+        "name": "ISA 62443-3-3:2013",
+        "children": [{
+          "uId": "SR 2.8",
+          "name": "SR 2.8"
+        }, {
+          "uId": "SR 2.9",
+          "name": "SR 2.9"
+        }, {
+          "uId": "SR 2.10",
+          "name": "SR 2.10"
+        }, {
+          "uId": "SR 2.11",
+          "name": "SR 2.11"
+        }, {
+          "uId": "SR 2.12",
+          "name": "SR 2.12"
+        }, {
+          "uId": "SR 3.9",
+          "name": "SR 3.9"
+        }, {
+          "uId": "SR 6.1",
+          "name": "SR 6.1"
+        }, {
+          "uId": "SR 6.2",
+          "name": "SR 6.2"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.16.1.1",
+          "name": "A.16.1.1"
+        }, {
+          "uId": "A.16.1.4",
+          "name": "A.16.1.4"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "AU-6",
+          "name": "AU-6"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "DE.AE-3",
+      "name": "DE.AE-3",
+      "description": "Event data are aggregated and correlated from multiple sources and sensors",
+      "children": [{
+        "uId": "ISA 62443-3-3:2013",
+        "name": "ISA 62443-3-3:2013",
+        "children": [{
+          "uId": "SR 6.1",
+          "name": "SR 6.1"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "AU-6",
+          "name": "AU-6"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "IR-5",
+          "name": "IR-5"
+        }, {
+          "uId": "IR-8",
+          "name": "IR-8"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "DE.AE-4",
+      "name": "DE.AE-4",
+      "description": "Impact of events is determined",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "APO12.06",
+          "name": "APO12.06"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "RA-3",
+          "name": "RA-3"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "DE.AE-5",
+      "name": "DE.AE-5",
+      "description": "Incident alert thresholds are established",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "APO12.06",
+          "name": "APO12.06"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1:2009 ",
+        "name": "ISA 62443-2-1:2009 ",
+        "children": [{
+          "uId": "4.2.3.10",
+          "name": "4.2.3.10"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "IR-5",
+          "name": "IR-5"
+        }, {
+          "uId": "IR-8",
+          "name": "IR-8"
+        }]
+      }]
+    }]
+  }, {
+    "uId": "DE.CM",
+    "name": "Security Continuous Monitoring",
+    "description": "The information system and assets are monitored at discrete intervals to identify cybersecurity events and verify the effectiveness of protective measures.",
+    "children": [{
+      "uId": "DE.CM-1",
+      "name": "DE.CM-1",
+      "description": "The network is monitored to detect potential cybersecurity events",
+      "children": [{
+        "uId": "CCS CSC",
+        "name": "CCS CSC",
+        "children": [{
+          "uId": "14",
+          "name": "14"
+        }, {
+          "uId": "16",
+          "name": "16"
+        }]
+      }, {
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "DSS02.07",
+          "name": "DSS02.07"
+        }]
+      }, {
+        "uId": "ISA 62443-3-3:2013",
+        "name": "ISA 62443-3-3:2013",
+        "children": [{
+          "uId": "SR 6.2",
+          "name": "SR 6.2"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "AC-2",
+          "name": "AC-2"
+        }, {
+          "uId": "AU-12",
+          "name": "AU-12"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "CM-3",
+          "name": "CM-3"
+        }, {
+          "uId": "SC-5",
+          "name": "SC-5"
+        }, {
+          "uId": "SC-7",
+          "name": "SC-7"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "DE.CM-2",
+      "name": "DE.CM-2",
+      "description": "The physical environment is monitored to detect potential cybersecurity events",
+      "children": [{
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.3.3.8",
+          "name": "4.3.3.3.8"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "PE-3",
+          "name": "PE-3"
+        }, {
+          "uId": "PE-6",
+          "name": "PE-6"
+        }, {
+          "uId": "PE-20",
+          "name": "PE-20"
+        }]
+      }]
+    }, {
+      "uId": "DE.CM-3",
+      "name": "DE.CM-3",
+      "description": "Personnel activity is monitored to detect potential cybersecurity events",
+      "children": [{
+        "uId": "ISA 62443-3-3:2013",
+        "name": "ISA 62443-3-3:2013",
+        "children": [{
+          "uId": "SR 6.2",
+          "name": "SR 6.2"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.12.4.1",
+          "name": "A.12.4.1"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "AC-2",
+          "name": "AC-2"
+        }, {
+          "uId": "AU-12",
+          "name": "AU-12"
+        }, {
+          "uId": "AU-13",
+          "name": "AU-13"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "CM-10",
+          "name": "CM-10"
+        }, {
+          "uId": "CM-11",
+          "name": "CM-11"
+        }]
+      }]
+    }, {
+      "uId": "DE.CM-4",
+      "name": "DE.CM-4",
+      "description": "Malicious code is detected",
+      "children": [{
+        "uId": "CCS CSC",
+        "name": "CCS CSC",
+        "children": [{
+          "uId": "5",
+          "name": "5"
+        }]
+      }, {
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "DSS05.01",
+          "name": "DSS05.01"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.4.3.8",
+          "name": "4.3.4.3.8"
+        }]
+      }, {
+        "uId": "ISA 62443-3-3:2013",
+        "name": "ISA 62443-3-3:2013",
+        "children": [{
+          "uId": "SR 3.2",
+          "name": "SR 3.2"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.12.2.1",
+          "name": "A.12.2.1"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "SI-3",
+          "name": "SI-3"
+        }]
+      }]
+    }, {
+      "uId": "DE.CM-5",
+      "name": "DE.CM-5",
+      "description": "Unauthorized mobile code is detected",
+      "children": [{
+        "uId": "ISA 62443-3-3:2013",
+        "name": "ISA 62443-3-3:2013",
+        "children": [{
+          "uId": "SR 2.4",
+          "name": "SR 2.4"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.12.5.1",
+          "name": "A.12.5.1"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "SC-18",
+          "name": "SC-18"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }, {
+          "uId": "SC-44",
+          "name": "SC-44"
+        }]
+      }]
+    }, {
+      "uId": "DE.CM-6",
+      "name": "DE.CM-6",
+      "description": "External service provider activity is monitored to detect potential cybersecurity events",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "APO07.06",
+          "name": "APO07.06"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.14.2.7",
+          "name": "A.14.2.7"
+        }, {
+          "uId": "A.15.2.1",
+          "name": "A.15.2.1"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "PS-7",
+          "name": "PS-7"
+        }, {
+          "uId": "SA-4",
+          "name": "SA-4"
+        }, {
+          "uId": "SA-9",
+          "name": "SA-9"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "DE.CM-7",
+      "name": "DE.CM-7",
+      "description": "Monitoring for unauthorized personnel, connections, devices, and software is performed",
+      "children": [{
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "AU-12",
+          "name": "AU-12"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "CM-3",
+          "name": "CM-3"
+        }, {
+          "uId": "CM-8",
+          "name": "CM-8"
+        }, {
+          "uId": "PE-3",
+          "name": "PE-3"
+        }, {
+          "uId": "PE-6",
+          "name": "PE-6"
+        }, {
+          "uId": "PE-20",
+          "name": "PE-20"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "DE.CM-8",
+      "name": "DE.CM-8",
+      "description": "Vulnerability scans are performed",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "BAI03.10",
+          "name": "BAI03.10"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.2.3.1",
+          "name": "4.2.3.1"
+        }, {
+          "uId": "4.2.3.7",
+          "name": "4.2.3.7"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.12.6.1",
+          "name": "A.12.6.1"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "RA-5",
+          "name": "RA-5"
+        }]
+      }]
+    }]
+  }, {
+    "uId": "DE.DP",
+    "name": "Detection Processes",
+    "description": "Detection processes andprocedures are maintained and tested to ensure timely and adequate awareness of anomalous events.",
+    "children": [{
+      "uId": "DE.DP-1",
+      "name": "DE.DP-1",
+      "description": "Roles and responsibilities for detection are well defined to ensure accountability",
+      "children": [{
+        "uId": "CCS CSC",
+        "name": "CCS CSC",
+        "children": [{
+          "uId": "5",
+          "name": "5"
+        }]
+      }, {
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "DSS05.01",
+          "name": "DSS05.01"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1:2009 ",
+        "name": "ISA 62443-2-1:2009 ",
+        "children": [{
+          "uId": "4.4.3.1",
+          "name": "4.4.3.1"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.6.1.1",
+          "name": "A.6.1.1"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CA-2",
+          "name": "CA-2"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "PM-14",
+          "name": "PM-14"
+        }]
+      }]
+    }, {
+      "uId": "DE.DP-2",
+      "name": "DE.DP-2",
+      "description": "Detection activities comply with all applicable requirements",
+      "children": [{
+        "uId": "ISA 62443-2-1:2009 ",
+        "name": "ISA 62443-2-1:2009 ",
+        "children": [{
+          "uId": "4.4.3.2",
+          "name": "4.4.3.2"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.18.1.4",
+          "name": "A.18.1.4"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CA-2",
+          "name": "CA-2"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "PM-14",
+          "name": "PM-14"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "DE.DP-3",
+      "name": "DE.DP-3",
+      "description": "Detection processes are tested",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "APO13.02",
+          "name": "APO13.02"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1:2009 ",
+        "name": "ISA 62443-2-1:2009 ",
+        "children": [{
+          "uId": "4.4.3.2",
+          "name": "4.4.3.2"
+        }]
+      }, {
+        "uId": "ISA 62443-3-3:2013",
+        "name": "ISA 62443-3-3:2013",
+        "children": [{
+          "uId": "SR 3.3",
+          "name": "SR 3.3"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.14.2.8",
+          "name": "A.14.2.8"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CA-2",
+          "name": "CA-2"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "PE-3",
+          "name": "PE-3"
+        }, {
+          "uId": "PM-14",
+          "name": "PM-14"
+        }, {
+          "uId": "SI-3",
+          "name": "SI-3"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "DE.DP-4",
+      "name": "DE.DP-4",
+      "description": "Event detection information is communicated to appropriate parties",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "APO12.06",
+          "name": "APO12.06"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.4.5.9",
+          "name": "4.3.4.5.9"
+        }]
+      }, {
+        "uId": "ISA 62443-3-3:2013",
+        "name": "ISA 62443-3-3:2013",
+        "children": [{
+          "uId": "SR 6.1",
+          "name": "SR 6.1"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.16.1.2",
+          "name": "A.16.1.2"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "AU-6",
+          "name": "AU-6"
+        }, {
+          "uId": "CA-2",
+          "name": "CA-2"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "RA-5",
+          "name": "RA-5"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "DE.DP-5",
+      "name": "DE.DP-5",
+      "description": "Detection processes are continuously improved",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "APO11.06",
+          "name": "APO11.06"
+        }, {
+          "uId": "DSS04.05",
+          "name": "DSS04.05"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.4.3.4",
+          "name": "4.4.3.4"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.16.1.6",
+          "name": "A.16.1.6"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CA-2",
+          "name": "CA-2"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "PL-2",
+          "name": "PL-2"
+        }, {
+          "uId": "RA-5",
+          "name": "RA-5"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }, {
+          "uId": "PM-14",
+          "name": "PM-14"
+        }]
+      }]
+    }]
+  }]
+}, {
+  "uId": "RS",
+  "name": "Respond",
+  "description": "",
+  "children": [{
+    "uId": "RS.RP",
+    "name": "Respone Planning",
+    "description": "Response processes and procedures are executed and maintained, to ensure timely response to detected cybersecurity events.",
+    "children": [{
+      "uId": "RS.RP-1",
+      "name": "RS.RP-1",
+      "description": "Response plan is executed during or after an event",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "BAI01.10",
+          "name": "BAI01.10"
+        }]
+      }, {
+        "uId": "CCS CSC",
+        "name": "CCS CSC",
+        "children": [{
+          "uId": "18",
+          "name": "18"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1:2009 ",
+        "name": "ISA 62443-2-1:2009 ",
+        "children": [{
+          "uId": "4.3.4.5.1",
+          "name": "4.3.4.5.1"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.16.1.5",
+          "name": "A.16.1.5"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": "CP-10",
+          "name": "CP-10"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "IR-8",
+          "name": "IR-8"
+        }]
+      }]
+    }]
+  }, {
+    "uId": "RS.CO",
+    "name": "Communications",
+    "description": "Response activities are coordinated with internal and external stakeholders, as appropriate, to include external support from law enforcement agencies.",
+    "children": [{
+      "uId": "RS.CO-1",
+      "name": "RS.CO-1",
+      "description": "Personnel know their roles and order of operations when a response is needed",
+      "children": [{
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.4.5.2",
+          "name": "4.3.4.5.2"
+        }, {
+          "uId": "4.3.4.5.3",
+          "name": "4.3.4.5.3"
+        }, {
+          "uId": "4.3.4.5.4",
+          "name": "4.3.4.5.4"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.6.1.1",
+          "name": "A.6.1.1"
+        }, {
+          "uId": "A.16.1.1",
+          "name": "A.16.1.1"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": "CP-3",
+          "name": "CP-3"
+        }, {
+          "uId": "IR-3",
+          "name": "IR-3"
+        }, {
+          "uId": "IR-8",
+          "name": "IR-8"
+        }]
+      }]
+    }, {
+      "uId": "RS.CO-2",
+      "name": "RS.CO-2",
+      "description": "Events are reported consistent with established criteria",
+      "children": [{
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.4.5.5",
+          "name": "4.3.4.5.5"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.6.1.3",
+          "name": "A.6.1.3"
+        }, {
+          "uId": "A.16.1.2",
+          "name": "A.16.1.2"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "AU-6",
+          "name": "AU-6"
+        }, {
+          "uId": "IR-6",
+          "name": "IR-6"
+        }, {
+          "uId": "IR-8",
+          "name": "IR-8"
+        }]
+      }]
+    }, {
+      "uId": "RS.CO-3",
+      "name": "RS.CO-3",
+      "description": "Information is shared consistent with response plans",
+      "children": [{
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.4.5.2",
+          "name": "4.3.4.5.2"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.16.1.2",
+          "name": "A.16.1.2"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": " CA-2",
+          "name": "CA-2"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": " IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": " IR-8",
+          "name": "IR-8"
+        }, {
+          "uId": "PE-6",
+          "name": "PE-6"
+        }, {
+          "uId": "RA-5",
+          "name": "RA-5"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "RS.CO-4",
+      "name": "RS.CO-4",
+      "description": "Coordination with stakeholders occurs consistent with response plans",
+      "children": [{
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.4.5.5",
+          "name": "4.3.4.5.5"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": " AU-6",
+          "name": "AU-6"
+        }, {
+          "uId": " IR-6",
+          "name": "IR-6"
+        }, {
+          "uId": " IR-8",
+          "name": "IR-8"
+        }]
+      }]
+    }, {
+      "uId": "RS.CO-5",
+      "name": "RS.CO-5",
+      "description": "Voluntary information sharing occurs with external stakeholders to achieve broader cybersecurity situational awareness",
+      "children": [{
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "PM-15",
+          "name": "PM-15"
+        }, {
+          "uId": "SI-5",
+          "name": "SI-5"
+        }]
+      }]
+    }]
+  }, {
+    "uId": "RS.AN",
+    "name": "Analysis",
+    "description": "Analysis is conducted to ensure adequate response and support recovery activities.",
+    "children": [{
+      "uId": "RS.AN-1",
+      "name": "RS.AN-1",
+      "description": "Notifications from detection systems are investigated",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "DSS02.07",
+          "name": "DSS02.07"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1:2009 ",
+        "name": "ISA 62443-2-1:2009 ",
+        "children": [{
+          "uId": "4.3.4.5.6",
+          "name": "4.3.4.5.6"
+        }, {
+          "uId": "4.3.4.5.7",
+          "name": "4.3.4.5.7"
+        }, {
+          "uId": "4.3.4.5.8",
+          "name": "4.3.4.5.8"
+        }]
+      }, {
+        "uId": "ISA 62443-3-3:2013",
+        "name": "ISA 62443-3-3:2013",
+        "children": [{
+          "uId": "SR 6.1",
+          "name": "SR 6.1"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.12.4.1",
+          "name": "A.12.4.1"
+        }, {
+          "uId": "A.12.4.3",
+          "name": "A.12.4.3"
+        }, {
+          "uId": "A.16.1.5",
+          "name": "A.16.1.5"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "AU-6",
+          "name": "AU-6"
+        }, {
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "IR-5",
+          "name": "IR-5"
+        }, {
+          "uId": "PE-6",
+          "name": "PE-6"
+        }, {
+          "uId": "SI-4",
+          "name": "SI-4"
+        }]
+      }]
+    }, {
+      "uId": "RS.AN-2",
+      "name": "RS.AN-2",
+      "description": "The impact of the incident is understood",
+      "children": [{
+        "uId": "ISA 62443-2-1:2009 ",
+        "name": "ISA 62443-2-1:2009 ",
+        "children": [{
+          "uId": "4.3.4.5.6",
+          "name": "4.3.4.5.6"
+        }, {
+          "uId": "4.3.4.5.7",
+          "name": "4.3.4.5.7"
+        }, {
+          "uId": "4.3.4.5.8",
+          "name": "4.3.4.5.8"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.16.1.6",
+          "name": "A.16.1.6"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }]
+      }]
+    }, {
+      "uId": "RS.AN-3",
+      "name": "RS.AN-3",
+      "description": "Forensics are performed",
+      "children": [{
+        "uId": "ISA 62443-3-3:2013",
+        "name": "ISA 62443-3-3:2013",
+        "children": [{
+          "uId": "SR 2.8",
+          "name": "SR 2.8"
+        }, {
+          "uId": "SR 2.9",
+          "name": "SR 2.9"
+        }, {
+          "uId": "SR 2.10",
+          "name": "SR 2.10"
+        }, {
+          "uId": "SR 2.11",
+          "name": "SR 2.11"
+        }, {
+          "uId": "SR 2.12",
+          "name": "SR 2.12"
+        }, {
+          "uId": "SR 3.9",
+          "name": "SR 3.9"
+        }, {
+          "uId": "SR 6.1",
+          "name": "SR 6.1"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.16.1.7",
+          "name": "A.16.1.7"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "AU-7",
+          "name": "AU-7"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }]
+      }]
+    }, {
+      "uId": "RS.AN-4",
+      "name": "RS.AN-4",
+      "description": "Incidents are categorized consistent with response plans",
+      "children": [{
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.4.5.6",
+          "name": "4.3.4.5.6"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.16.1.4",
+          "name": "A.16.1.4"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "IR-5",
+          "name": "IR-5"
+        }, {
+          "uId": "IR-8",
+          "name": "IR-8"
+        }]
+      }]
+    }]
+  }, {
+    "uId": "RS.MI",
+    "name": "Mitigation",
+    "description": "Activities are performed to prevent expansion of an event, mitigate its effects, and eradicate the incident.",
+    "children": [{
+      "uId": "RS.MI-1",
+      "name": "RS.MI-1",
+      "description": "Incidents are contained",
+      "children": [{
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.4.5.6",
+          "name": "4.3.4.5.6"
+        }]
+      }, {
+        "uId": "ISA 62443-3-3:2013",
+        "name": "ISA 62443-3-3:2013",
+        "children": [{
+          "uId": "SR 5.1",
+          "name": "SR 5.1"
+        }, {
+          "uId": "SR 5.2",
+          "name": "SR 5.2"
+        }, {
+          "uId": "SR 5.4",
+          "name": "SR 5.4"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.16.1.5",
+          "name": "A.16.1.5"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "IR-4",
+          "name": "IR-4"
+        }]
+      }]
+    }, {
+      "uId": "RS.MI-2",
+      "name": "RS.MI-2",
+      "description": "Incidents are mitigated",
+      "children": [{
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.4.5.6",
+          "name": "4.3.4.5.6"
+        }, {
+          "uId": "4.3.4.5.10",
+          "name": "4.3.4.5.10"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.12.2.1",
+          "name": "A.12.2.1"
+        }, {
+          "uId": "A.16.1.5",
+          "name": "A.16.1.5"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "IR-4",
+          "name": "IR-4"
+        }]
+      }]
+    }, {
+      "uId": "RS.MI-3",
+      "name": "RS.MI-3",
+      "description": "Newly identified vulnerabilities are mitigated or documented as accepted risks",
+      "children": [{
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.12.6.1",
+          "name": "A.12.6.1"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CA-7",
+          "name": "CA-7"
+        }, {
+          "uId": "RA-3",
+          "name": "RA-3"
+        }, {
+          "uId": "RA-5",
+          "name": "RA-5"
+        }]
+      }]
+    }]
+  }, {
+    "uId": "RS.IM",
+    "name": "Improvements",
+    "description": "Organizational response activities are improved by incorporating lessons learned from current and previous detection/response activities.",
+    "children": [{
+      "uId": "RS.IM-1",
+      "name": "RS.IM-1",
+      "description": "Response plans incorporate lessons learned",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "BAI01.13",
+          "name": "BAI01.13"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1:2009",
+        "name": "ISA 62443-2-1:2009",
+        "children": [{
+          "uId": "4.3.4.5.10",
+          "name": "4.3.4.5.10"
+        }, {
+          "uId": "4.4.3.4",
+          "name": "4.4.3.4"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.16.1.6",
+          "name": "A.16.1.6"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "IR-8",
+          "name": "IR-8"
+        }]
+      }]
+    }, {
+      "uId": "RS.IM-2",
+      "name": "RS.IM-2",
+      "description": "Response strategies are updated",
+      "children": [{
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "IR-8",
+          "name": "IR-8"
+        }]
+      }]
+    }]
+  }]
+}, {
+  "uId": "RC",
+  "name": "Recover",
+  "description": "Recover Desc",
+  "children": [{
+    "uId": "RC.RP",
+    "name": "Recovery Planning",
+    "description": "Recovery Planning Desc",
+    "children": [{
+      "uId": "RC.RP-1",
+      "name": "RC.RP-1",
+      "description": "Recovery plan is executed during or after an event.",
+      "children": [{
+        "uId": "CCS CSC",
+        "name": "CCS CSC",
+        "children": [{
+          "uId": "8",
+          "name": "8"
+        }]
+      }, {
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "DSS02.05",
+          "name": "DSS02.05"
+        }, {
+          "uId": "DSS03.04",
+          "name": "DSS03.04"
+        }]
+      }, {
+        "uId": "ISO/IEC 27001:2013",
+        "name": "ISO/IEC 27001:2013",
+        "children": [{
+          "uId": "A.16.1.5",
+          "name": "A.16.1.5"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "IR-8",
+          "name": "IR-8"
+        }]
+      }]
+    }]
+  }, {
+    "uId": "RC.IM",
+    "name": "Improvements",
+    "description": "Recovery planning and processes are improved by incorporating lessons learned into future activities.",
+    "children": [{
+      "uId": "RC.IM-1",
+      "name": "RC.IM-1",
+      "description": "Recovery plans incorporate lessons learned.",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "BAI05.07",
+          "name": "BAI05.07"
+        }]
+      }, {
+        "uId": "ISA 62443-2-1",
+        "name": "ISA 62443-2-1",
+        "children": [{
+          "uId": "4.4.3.4",
+          "name": "4.4.3.4"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "IR-8",
+          "name": "IR-8"
+        }]
+      }]
+    }, {
+      "uId": "RC.IM-2",
+      "name": "RC.IM-2",
+      "description": "Recovery strategies are updated.",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "BAI07.08",
+          "name": "BAI07.08"
+        }]
+      }, {
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }, {
+          "uId": "IR-8",
+          "name": "IR-8"
+        }]
+      }]
+    }]
+  }, {
+    "uId": "RC.CO",
+    "name": "Communications",
+    "description": "Restoration activities are coordinated with internal and external parties, such as coordinating centers, Internet Service Providers, owners of attacking systems, victims, other CSIRTs, and vendors.",
+    "children": [{
+      "uId": "RC.CO-1",
+      "name": "RC.CO-1",
+      "description": "Public relations are managed.",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "EDM03.02",
+          "name": "EDM03.02"
+        }]
+      }]
+    }, {
+      "uId": "RC.CO-2",
+      "name": "RC.CO-2",
+      "description": "Reputation after an event is repaired.",
+      "children": [{
+        "uId": "COBIT 5",
+        "name": "COBIT 5",
+        "children": [{
+          "uId": "MEA03.02",
+          "name": "MEA03.02"
+        }]
+      }]
+    }, {
+      "uId": "RC.CO-3",
+      "name": "RC.CO-3",
+      "description": "Recovery activities are communicated to internal stakeholders and executive and management teams.",
+      "children": [{
+        "uId": "NIST SP 800-53 Rev. 4",
+        "name": "NIST SP 800-53 Rev. 4",
+        "children": [{
+          "uId": "CP-2",
+          "name": "CP-2"
+        }, {
+          "uId": "IR-4",
+          "name": "IR-4"
+        }]
+      }]
+    }]
+  }]
+}]

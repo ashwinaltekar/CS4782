@@ -12,10 +12,12 @@
                 vm.nistSecurityFramework = response;
             });
 
+        vm.selectedNode = null;
 
         vm.treeOptions = {
-            nodeChildren: "subCollection",
-            dirSelectable: false,
+            nodeChildren: "children",
+            allowDeselect: false,
+            dirSelectable: true,
             injectClasses: {
                 ul: "a1",
                 li: "a2",
@@ -31,5 +33,11 @@
                 return node1 === node2;
             }
         };
+
+        vm.updateSelected = updateSelected;
+
+        function updateSelected(node) {
+            vm.selectedNode = node;
+        }
     }
 })();

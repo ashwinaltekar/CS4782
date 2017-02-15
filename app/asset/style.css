@@ -2,6 +2,11 @@ body, html, .row-offcanvas {
     height: 100%;
 }
 
+a:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .navbar {
     margin-bottom: 0;
 }
