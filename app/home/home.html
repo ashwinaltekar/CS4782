@@ -1,0 +1,19 @@
+<div class="row-offcanvas row-offcanvas-left" ng-controller="HomeController as vm">
+    <div id="sidebar" class="sidebar-offcanvas">
+        <div class="col-md-12">
+            <h4>NIST</h4>
+            <div treecontrol class="tree-classic"
+                 tree-model="vm.nistSecurityFramework"
+                 options="vm.treeOptions"
+                 on-selection="showSelected(node)"
+                 selected-node="node1">
+                {{node.name}} <span ng-if="node.children.length">({{node.children.length}})</span>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="col-md-12">
+            <h2>// Data</h2>
+        </div>
+    </div>
+</div>
