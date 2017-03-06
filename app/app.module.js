@@ -5,6 +5,7 @@
         'ui.bootstrap',
         'ui.router',
         'treeControl',
-        'ngAnimate'
+        'ngAnimate',
+        'ui.tree'
     ]);
 }());

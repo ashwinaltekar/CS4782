@@ -1,17 +1,29 @@
 <div class="row-offcanvas row-offcanvas-left" ng-controller="HomeController as vm">
     <div id="sidebar" class="sidebar-offcanvas">
         <div class="col-md-12">
-            <h4>NIST</h4>
+            <h4>NIST
+                <!--<div class="pull-right">-->
+                    <!--<button ng-click="vm.showDisabled = !vm.showDisabled">-->
+                        <!--<i class="fa " ng-class="vm.showDisabled ? 'fa-eye-slash' : 'fa-eye'"></i> Disabled-->
+                    <!--</button>-->
+                <!--</div>-->
+            </h4>
             <div treecontrol class="tree-classic"
                  tree-model="vm.nistSecurityFramework"
                  options="vm.treeOptions"
+                 is-selectable="isSelectable(node)"
                  on-selection="vm.updateSelected(node)">
+                <input type="checkbox" ng-click="vm.checkboxClick($event, node)">
                 {{node.name}} <span ng-if="node.children.length">({{node.children.length}})</span>
             </div>
         </div>
     </div>
     <div id="main">
         <div class="col-md-12">
+            <div ng-show="vm.showDisabled">Showing</div>
+            <div ng-hide="vm.showDisabled" id="showing">!Showing</div>
+            <p ng-if="vm.lastNodeClicked">Clicked: {{vm.lastNodeClicked.name}} ({{vm.lastNodeClicked.uId}})</p>
+
             <div ng-if="vm.selectedNode">
                 <h3>{{vm.selectedNode.name}} ({{vm.selectedNode.uId}})</h3>
                 <p ng-if="vm.selectedNode.description.length">

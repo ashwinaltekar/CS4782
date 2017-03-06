@@ -1,0 +1,29 @@
+<div class="tree-node">
+    <div class="pull-left tree-handle" ui-tree-handle>
+        <i class="fa fa-bars"></i>
+    </div>
+
+    <div class="tree-node-content" ng-click="vm.selectNode(node, this, $event)">
+        <a class="btn btn-success btn-xs" ng-if="node.children && node.children.length > 0"
+           data-nodrag ng-click="vm.toggle(this, $event)">
+            <i class="fa fa-fw" ng-class="collapsed ? 'fa-chevron-right': 'fa-chevron-down'"></i>
+        </a>
+        {{node.name}}
+        <div class="pull-right node-actions">
+            <a class="btn btn-primary btn-xs" data-nodrag ng-click="vm.addSubItem(this)">
+                <i class="fa fa-plus"></i>
+            </a>
+            <a class="btn btn-info btn-xs" data-nodrag ng-click="vm.edit(node, this)">
+                <i class="fa fa-pencil"></i>
+            </a>
+            <a class="btn btn-danger btn-xs" data-nodrag ng-click="vm.remove(this)">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<ol ui-tree-nodes="" ng-model="node.children">
+    <li ng-repeat="node in node.children" ui-tree-node data-expand-on-hover="true" ng-include="'view/tree-template.html'" ng-if="!collapsed">
+    </li>
+</ol>
