@@ -1,9 +1,5 @@
 var express = require('express'),
 framework = require('./routes/api');
-<<<<<<< HEAD
-framework.setup;
-=======
->>>>>>> refs/remotes/ashwinaltekar/master
 
 var app = express();
 
