@@ -1,5 +1,6 @@
 var express = require('express'),
-    wine = require('./routes/api');
+framework = require('./routes/api');
+framework.setup;
 
 var app = express();
 
@@ -8,11 +9,17 @@ app.configure(function () {
     app.use(express.bodyParser());
 });
 
-app.get('/framework', framework.findAll);
-app.get('/framework/:id', framework.findById);
-app.post('/framework', framework.addWine);
-app.put('/framework/:id', framework.updateWine);
-app.delete('/framework/:id', framework.deleteWine);
+app.get('/api/frameworks', framework.findAll);
+app.get('/api/frameworks/:id', framework.findById);
+app.post('/api/frameworks', framework.addFramework);
+app.put('/api/frameworks/:id', framework.updateFrameworkById);
+app.delete('/api/frameworks/:id', framework.deleteFrameworkById);
+
+app.get('/api/frameworks/:id/controls', framework.findAllFrameworkControls);
+app.get('/api/frameworks/:id/controls/:name', framework.findFrameworkControlByIdAndName);
+app.post('/api/frameworks/:id/controls', framework.addFrameworkControl);
+app.put('/api/frameworks/:id/controls/:name', framework.updateFrameworkControlByIdAndName);
+app.delete('/api/frameworks/:id/controls/:name', framework.deleteFrameworkControlsByIdAndName);
 
 app.listen(3000);
 console.log('Listening on port 3000...');
