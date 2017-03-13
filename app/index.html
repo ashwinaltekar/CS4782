@@ -7,19 +7,20 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="shortcut icon" href="asset/lock.png">
+
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="bower_components/angular-tree-control/css/tree-control.css" rel="stylesheet">
-    <link href="bower_components/angular-tree-control/css/tree-control-attribute.css" rel="stylesheet">
     <link href="bower_components/html5-boilerplate/dist/css/normalize.css" rel="stylesheet">
     <link href="bower_components/html5-boilerplate/dist/css/main.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
-    <link href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css" rel="stylesheet" >
+    <link href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css" rel="stylesheet">
+    <link href="bower_components/ng-dialog/css/ngDialog.css" rel="stylesheet"/>
+    <link href="bower_components/ng-dialog/css/ngDialog-theme-default.css" rel="stylesheet"/>
     <link href="asset/style.css" rel="stylesheet">
 </head>
 <body>
-
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -42,23 +43,22 @@
 </nav>
 
 <div ui-view></div>
+<a id="exportHelper"></a>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/angular-route/angular-route.min.js"></script>
 <script src="bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="bower_components/angular-tree-control/angular-tree-control.js"></script>
 <script src="bower_components/underscore/underscore-min.js"></script>
 <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.min.js"></script>
+<script src="bower_components/ng-dialog/js/ngDialog.min.js"></script>
 <script src="bower_components/tree-model-js/dist/TreeModel-min.js"></script>
 
 <script src="app.module.js"></script>
 <script src="app.config.js"></script>
-<script src="home/home.controller.js"></script>
 <script src="view/view.controller.js"></script>
 <script src="home/home.service.js"></script>
+<script src="components/customOnChange.directive.js"></script>
 
 </body>
 </html>

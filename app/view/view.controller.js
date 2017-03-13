@@ -3,12 +3,13 @@
 
     angular.module('csApp').controller('ViewController', view);
 
-    view.$inject = ['HomeService', '$scope'];
-    function view(HomeService, $scope) {
+    view.$inject = ['$scope', 'HomeService', 'ngDialog'];
+    function view($scope, HomeService, ngDialog) {
         var vm = this;
         var tree = new TreeModel();
         vm.selectedNode = null;
         vm.selectedNodeScope = null;
+        vm.fileName = "";
 
         HomeService.get()
             .then(function (response) {
@@ -22,69 +23,22 @@
                 //     console.error("!nodeFound");
                 // }
             });
-        
-        vm.expandAll = function() {
-            $scope.$broadcast('angular-ui-tree:expand-all');
-        };
 
-        vm.collapseAll = function() {
-            $scope.$broadcast('angular-ui-tree:collapse-all');
-        };
+        vm.expandAll = expandAll;
+        vm.collapseAll = collapseAll;
+        vm.toggleNode = toggleNode;
 
-        vm.toggle = function(node, event) {
-            node.toggle();
-            event.preventDefault();
-        };
 
-        vm.selectNode = function (node, scope, event) {
-            if (event.target.nodeName === "DIV") {
-                vm.selectedNode = node;
-                vm.selectedNodeScope = scope;
-            }
-        };
+        vm.loadFile = loadFile;
+        vm.importJson = importJson;
+        vm.exportJson = exportJson;
 
-        vm.addSubItem = function(scope) {
-            var nodeData = scope.$modelValue;
-            nodeData.children.push({
-                id: nodeData.id * 10 + nodeData.children.length,
-                name: nodeData.name + ' ' + (nodeData.children.length + 1),
-                children: []
-            });
-            // if (vm.selectedNode) {
-            //     var nodeData = vm.selectedNodeScope.$modelValue;
-            //     nodeData.children.push({
-            //         id: nodeData.id * 10 + nodeData.children.length,
-            //         name: nodeData.name + ' ' + (nodeData.children.length + 1),
-            //         children: []
-            //     });
-            // }
-        };
+        vm.selectNode = selectNode;
+        vm.clearSelection = clearSelection;
 
-        vm.edit = function (node, scope) {
-            var newName = prompt("Enter new name", node.name);
-
-            if (newName != null && node.name !== newName) {
-                node.name = newName;
-            }
-
-            // if (vm.selectedNode) {
-            //     var newName = prompt("Enter new name", vm.selectedNode.name);
-            //
-            //     if (newName != null && vm.selectedNode.name !== newName) {
-            //         vm.selectedNode.name = newName;
-            //     }
-            // }
-        };
-        
-        vm.remove = function(scope) {
-            scope.remove();
-            // if (vm.selectedNode) {
-            //     vm.selectedNodeScope.remove();
-            //
-            //     vm.selectedNode = null;
-            //     vm.selectedNodeScope = null;
-            // }
-        };
+        vm.add = add;
+        vm.edit = edit;
+        vm.remove = remove;
 
         vm.moveLastToTheBeginning = function() {
             var a = vm.data.pop();
@@ -113,51 +67,171 @@
             };
         }
 
-        //
+        function expandAll() {
+            $scope.$broadcast('angular-ui-tree:expand-all');
+        }
 
-        document.getElementById('import').onclick = function() {
-            var files = document.getElementById('selectFiles').files;
-            console.log(files);
-            if (files.length <= 0) {
-                return false;
+        function collapseAll() {
+            $scope.$broadcast('angular-ui-tree:collapse-all');
+        }
+
+        function toggleNode(node, event) {
+            node.toggle();
+            event.preventDefault();
+        }
+
+        function selectNode(node, scope, event) {
+            if (event.target.nodeName === "DIV") {
+                vm.selectedNode = node;
+                vm.selectedNodeScope = scope;
             }
+        }
+
+        function clearSelection() {
+            vm.selectedNode = null;
+            vm.selectedNodeScope = null;
+        }
+
+        function add(list) {
+            addNodeDialog(list);
+        }
+
+        function edit() {
+            if (vm.selectedNode) {
+                editNodeDialog(vm.selectedNode);
+            }
+        }
+
+        function remove() {
+            if (vm.selectedNode && vm.selectedNodeScope) {
+                removeNodeDialog(vm.selectedNode);
+            }
+        }
+
+        function addNodeDialog(list) {
+            ngDialog
+                .openConfirm({
+                    template: 'view/modify-node-dialog.html',
+                    className: 'ngdialog-theme-default',
+                    controller: ['$scope', function($scope) {
+                        var vm = this;
+                        vm.node = {
+                            uId: "custom-" + new Date().getTime(),
+                            name: "",
+                            description: "",
+                            children: []
+                        };
+                    }],
+                    controllerAs: 'vm'
+                })
+                .then(function (node) {
+                    if (vm.selectedNodeScope) {
+                        var nodeData = vm.selectedNodeScope.$modelValue;
+                        nodeData.children.push(node);
+                    } else {
+                        list.push(node);
+                    }
+                }, function () {
+                    // Cancelled
+                });
+        }
+
+        function editNodeDialog(selectedNode) {
+            ngDialog
+                .openConfirm({
+                    template: 'view/modify-node-dialog.html',
+                    className: 'ngdialog-theme-default',
+                    resolve: {
+                        node: function () {
+                            return selectedNode;
+                        }
+                    },
+                    controller: ['node', function(node) {
+                        var vm = this;
+                        vm.node = {
+                            uId: node.uId,
+                            name: node.name || "",
+                            description: node.description || "",
+                            children: node.children
+                        };
+                    }],
+                    controllerAs: 'vm'
+                })
+                .then(function (node) {
+                    if (selectedNode.name !== node.name) {
+                        selectedNode.name = node.name;
+                        selectedNode.description = node.description;
+                    }
+                }, function () {
+                    // Cancelled
+                });
+        }
+
+        function removeNodeDialog(selectedNode) {
+            ngDialog
+                .openConfirm({
+                    template: 'view/remove-node-dialog.html',
+                    className: 'ngdialog-theme-default',
+                    resolve: {
+                        node: function () {
+                            return selectedNode;
+                        }
+                    },
+                    controller: ['node', function(node) {
+                        var vm = this;
+                        vm.node = {
+                            uId: node.uId,
+                            name: node.name || "",
+                            description: node.description || "",
+                            children: node.children
+                        };
+                    }],
+                    controllerAs: 'vm'
+                })
+                .then(function (node) {
+                    vm.selectedNodeScope.remove();
+
+                    vm.selectedNode = null;
+                    vm.selectedNodeScope = null;
+                }, function () {
+                    // Cancelled
+                });
+        }
+
+        function loadFile() {
+            vm.fileToImport = event.target.files[0];
+
+            vm.fileName = vm.fileToImport.name;
+            $scope.$apply();
 
             var fr = new FileReader();
 
             fr.onload = function(e) {
-                console.log(e);
-                var result = JSON.parse(e.target.result);
+                try {
+                    vm.parsedResult = JSON.parse(e.target.result);
+                    vm.parsedResultView = JSON.stringify(vm.parsedResult, null, 2);
 
-                vm.data = result;
-                $scope.$apply();
-
-                var formatted = JSON.stringify(result, null, 2);
-                document.getElementById('result').value = formatted;
+                    $scope.$apply();
+                } catch(e) {
+                    ngDialog.open({ template: 'view/import-error-dialog.html', className: 'ngdialog-theme-default' });
+                }
             };
 
-            fr.readAsText(files.item(0));
-        };
+            fr.readAsText(vm.fileToImport);
+        }
 
-        $(document).on('change', ':file', function() {
-            var input = $(this),
-                numFiles = input.get(0).files ? input.get(0).files.length : 1,
-                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-            input.trigger('fileselect', [numFiles, label]);
-        });
+        function importJson() {
+            if (vm.parsedResult) {
+                vm.data = vm.parsedResult;
+            }
+        }
 
-        $(document).ready( function() {
-            $(':file').on('fileselect', function(event, numFiles, label) {
-
-                var input = $(this).parents('.input-group').find(':text'),
-                    log = numFiles > 1 ? numFiles + ' files selected' : label;
-
-                if( input.length ) {
-                    input.val(log);
-                } else {
-                    if( log ) alert(log);
-                }
-
-            });
-        });
+        function exportJson(data) {
+            var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
+            var dlAnchorElem = document.getElementById('exportHelper');
+            dlAnchorElem.setAttribute("href", dataStr);
+            dlAnchorElem.setAttribute("download", "security-fw-" + new Date().getTime() + ".json");
+            dlAnchorElem.click();
+        }
     }
 })();
