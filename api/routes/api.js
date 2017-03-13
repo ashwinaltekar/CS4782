@@ -1,50 +1,49 @@
-var mongo = require('mongodb');
+var mongo = require('mongodb').MongoClient;
 
-var Server = mongo.Server,
-    Db = mongo.Db,
-    BSON = mongo.BSONPure;
-
-var ObjectId = require('mongodb').ObjectID;
-
-var server = new Server('ds119370.mlab:19370.com', 19370, {auto_reconnect: true});
-db = new Db('cs4782', server);
+//this is used to create the connection url to the database
+var dbinfo = require ('./config.json');
+var url = 'mongodb://' + dbinfo.user + ':' + dbinfo.password + '@' + dbinfo.location + 
+			':' + dbinfo.port +'/' + dbinfo.name;
 
 /**
- * Error handling for connection and collection.
- **/
-db.open(function(err, db) {
-    if(!err) {
-        console.log("Connected to 'cs4782' database");
-        db.collection('frameworks', {strict:true}, function(err, collection) {
-            if (err) {
-                console.log("The 'frameworks' collection doesn't exist.");
-            }
-        });
-    }
-});
-
-
-/**
- * Functions to handle the base framework mappings.
- * Needs data and tweak.
+ * Gets the framework catalog of a specific framework
  **/
 exports.findById = function(req, res) {
     var id = req.params.id;
     console.log('Retrieving framework: ' + id);
-    db.collection('frameworks', function(err, collection) {
-        collection.find({"_id": new ObjectId(id)}, function(err, item) {
-            console.log(item);
-            res.send(item);
-        });
-    });
+    //set up connection with db
+	mongo.connect (url, function (err, db)
+	{ if (err)throw err;
+	
+			//query collection by pattern 
+			db.collection('frameworks').find ({"framework": "" + id, "type": "catalog"}).toArray (function (err, result)
+			{
+				
+				res.send (result);
+			});
+		
+		db.close ();
+	});
 };
 
+/**
+ *Gets all framework catalogs and returns them
+ **/
 exports.findAll = function(req, res) {
-    db.collection('frameworks', function(err, collection) {
-        collection.find().toArray(function(err, items) {
-            res.send(items);
-        });
-    });
+	
+	//set up connection with db
+	mongo.connect (url, function (err, db)
+	{ if (err)throw err;
+	
+			//query collection by pattern 
+			db.collection('frameworks').find ({"type": "catalog"}).toArray (function (err, result)
+			{
+				
+				res.send (result);
+			});
+		
+		db.close ();
+	});
 };
 
 exports.addFramework = function(req, res) {
@@ -60,7 +59,7 @@ exports.addFramework = function(req, res) {
             }
         });
     });
-}
+};
 
 exports.updateFrameworkById = function(req, res) {
     var id = req.params.id;
@@ -98,24 +97,50 @@ exports.deleteFrameworkById = function(req, res) {
 
 
 /**
- * Functions to handle the framework controls request mappings.
+ * Gets all controls by a particular framework id
  **/
 exports.findAllFrameworkControls = function(req, res) {
     var id = req.params.id;
     console.log('Retrieving framework: ' + id);
-    db.collection('frameworks', function(err, collection) {
-        collection.findOne({'_id':new BSON.ObjectID(id)}, function(err, item) {
-            res.send(item);
-        });
-    });
+	
+	//connect using mongo and the database url then close
+	mongo.connect (url, function (err, db){ 
+		if (err)throw err;
+	
+		//query collection by pattern 
+		db.collection('frameworks').find ({"framework": ""  + id, "type": "control" }).toArray (function (err, result)
+		{
+				
+				res.send (result);
+		});
+		
+		//close the database connection after query
+		db.close ();
+	});
+   
 };
 
+/**
+ * Gets a control by a particular framework id and a name
+ **/
+ 
 exports.findFrameworkControlByIdAndName = function(req, res) {
-    db.collection('frameworks', function(err, collection) {
-        collection.find().toArray(function(err, items) {
-            res.send(items);
-        });
-    });
+	var id = req.params.id;
+	var name = req.params.name;
+	console.log ("Getting control " + name + " from framework " + id);
+	//set up connection with db
+	mongo.connect (url, function (err, db)
+	{ if (err)throw err;
+	
+			//query collection by pattern 
+			db.collection('frameworks').find ({"framework": "" + id, "name": "" + name, "type": "control"}).toArray (function (err, result)
+			{
+				
+				res.send (result);
+			});
+		
+		db.close ();
+	});
 };
 
 exports.addFrameworkControl = function(req, res) {
