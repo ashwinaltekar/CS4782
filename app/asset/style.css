@@ -28,6 +28,10 @@ a:hover {
     overflow: auto;
 }
 
+#exportHelper {
+    display: none;
+}
+
 /*
  * off Canvas sidebar
  * --------------------------------------------------
@@ -53,17 +57,6 @@ a:hover {
         position: absolute;
         top: 0;
     }
-}
-
-/*[treecontrol] > ul > li {*/
-    /*padding: 0;*/
-/*}*/
-[treecontrol] > ul > .a2 {
-    padding: 0;
-}
-
-.vAccordion--default v-pane-content > div {
-    /*padding-bottom: 0px;*/
 }
 
 /*
@@ -139,4 +132,10 @@ tr.angular-ui-tree-empty {
 
 .angular-ui-tree-node, .angular-ui-tree-placeholder {
     margin: 3px 0;
+}
+
+
+.nodeActive {
+    background: #428bca;
+    color:#FEFEFA;
 }
