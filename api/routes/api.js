@@ -8,15 +8,16 @@ var url = 'mongodb://' + dbinfo.user + ':' + dbinfo.password + '@' + dbinfo.loca
 /**
  * Gets the framework catalog of a specific framework
  **/
-exports.findById = function(req, res) {
-    var id = req.params.id;
-    console.log('Retrieving framework: ' + id);
+exports.findFrameworkByName = function(req, res) {
+    var name = req.params.name;
+    console.log('Retrieving framework: ' + name);
     //set up connection with db
 	mongo.connect (url, function (err, db)
-	{ if (err)throw err;
+	{ 
+        if (err)throw err;
 	
 			//query collection by pattern 
-			db.collection('frameworks').find ({"framework": "" + id, "type": "catalog"}).toArray (function (err, result)
+			db.collection('frameworks').find ({"framework": "" + name, "type": "catalog"}).toArray (function (err, result)
 			{
 				
 				res.send (result);
@@ -29,16 +30,17 @@ exports.findById = function(req, res) {
 /**
  *Gets all framework catalogs and returns them
  **/
-exports.findAll = function(req, res) {
+exports.findAllFrameworks = function(req, res) {
 	
+    console.log("Retrieving all frameworks!");
 	//set up connection with db
 	mongo.connect (url, function (err, db)
-	{ if (err)throw err;
+	{ 
+        if (err)throw err;
 	
 			//query collection by pattern 
 			db.collection('frameworks').find ({"type": "catalog"}).toArray (function (err, result)
 			{
-				
 				res.send (result);
 			});
 		
@@ -46,71 +48,20 @@ exports.findAll = function(req, res) {
 	});
 };
 
-exports.addFramework = function(req, res) {
-    var framework = req.body;
-    console.log('Adding framework: ' + JSON.stringify(framework));
-    db.collection('frameworks', function(err, collection) {
-        collection.insert(framework, {safe:true}, function(err, result) {
-            if (err) {
-                res.send({'error':'An error has occurred while adding.'});
-            } else {
-                console.log('Success: ' + JSON.stringify(result[0]));
-                res.send(result[0]);
-            }
-        });
-    });
-};
-
-exports.updateFrameworkById = function(req, res) {
-    var id = req.params.id;
-    var framework = req.body;
-    console.log('Updating framework: ' + id);
-    console.log(JSON.stringify(framework));
-    db.collection('frameworks', function(err, collection) {
-        collection.update({'_id':new BSON.ObjectID(id)}, framework, {safe:true}, function(err, result) {
-            if (err) {
-                console.log('Error updating framework: ' + err);
-                res.send({'error':'An error has occurred while updating'});
-            } else {
-                console.log('' + result + ' document(s) updated');
-                res.send(framework);
-            }
-        });
-    });
-}
-
-exports.deleteFrameworkById = function(req, res) {
-    var id = req.params.id;
-    console.log('Deleting framework: ' + id);
-    db.collection('frameworks', function(err, collection) {
-        collection.remove({'_id':new BSON.ObjectID(id)}, {safe:true}, function(err, result) {
-            if (err) {
-                res.send({'error':'An error has occurred - ' + err});
-            } else {
-                console.log('' + result + ' document(s) deleted');
-                res.send(req.body);
-            }
-        });
-    });
-}
-
-
-
 /**
  * Gets all controls by a particular framework id
  **/
 exports.findAllFrameworkControls = function(req, res) {
-    var id = req.params.id;
-    console.log('Retrieving framework: ' + id);
+    var name = req.params.name;
+    console.log('Retrieving framework: ' + name + " and all framework controls!");
 	
 	//connect using mongo and the database url then close
 	mongo.connect (url, function (err, db){ 
 		if (err)throw err;
 	
 		//query collection by pattern 
-		db.collection('frameworks').find ({"framework": ""  + id, "type": "control" }).toArray (function (err, result)
+		db.collection('frameworks').find ({"framework": ""  + name, "type": "control" }).toArray (function (err, result)
 		{
-				
 				res.send (result);
 		});
 		
@@ -123,17 +74,18 @@ exports.findAllFrameworkControls = function(req, res) {
 /**
  * Gets a control by a particular framework id and a name
  **/
- 
-exports.findFrameworkControlByIdAndName = function(req, res) {
-	var id = req.params.id;
+exports.findFrameworkControlByFrameworkNameAndControlName = function(req, res) {
+	var fname = req.params.fname;
 	var name = req.params.name;
-	console.log ("Getting control " + name + " from framework " + id);
+
+	console.log ("Getting control " + name + " from framework " + fname);
+
 	//set up connection with db
 	mongo.connect (url, function (err, db)
 	{ if (err)throw err;
 	
 			//query collection by pattern 
-			db.collection('frameworks').find ({"framework": "" + id, "name": "" + name, "type": "control"}).toArray (function (err, result)
+			db.collection('frameworks').find ({"framework": "" + fname, "name": "" + name, "type": "control"}).toArray (function (err, result)
 			{
 				
 				res.send (result);
@@ -143,51 +95,24 @@ exports.findFrameworkControlByIdAndName = function(req, res) {
 	});
 };
 
-exports.addFrameworkControl = function(req, res) {
-    var framework = req.body;
-    console.log('Adding framework: ' + JSON.stringify(framework));
-    db.collection('frameworks', function(err, collection) {
-        collection.insert(framework, {safe:true}, function(err, result) {
-            if (err) {
-                res.send({'error':'An error has occurred while adding.'});
-            } else {
-                console.log('Success: ' + JSON.stringify(result[0]));
-                res.send(result[0]);
-            }
-        });
-    });
-}
+/**
+ * Gets a set of one or more frameworks by business type.
+ **/
+exports.findFrameworkByBusinessType = function(req, res) {
+    var type = req.params.type;
 
-exports.updateFrameworkControlByIdAndName = function(req, res) {
-    var id = req.params.id;
-    var framework = req.body;
-    console.log('Updating framework: ' + id);
-    console.log(JSON.stringify(framework));
-    db.collection('frameworks', function(err, collection) {
-        collection.update({'_id':new BSON.ObjectID(id)}, framework, {safe:true}, function(err, result) {
-            if (err) {
-                console.log('Error updating framework: ' + err);
-                res.send({'error':'An error has occurred while updating'});
-            } else {
-                console.log('' + result + ' document(s) updated');
-                res.send(framework);
-            }
-        });
-    });
-}
+    console.log ("Getting set of frameworks from type" + type);
 
-exports.deleteFrameworkControlsByIdAndName = function(req, res) {
-    var id = req.params.id;
-    var name = req.params.name;
-    console.log('Deleting framework control: ' + id + ' and Name: ' + name );
-    db.collection('frameworks', function(err, collection) {
-        collection.remove({'_id':new BSON.ObjectID(id)}, {safe:true}, function(err, result) {
-            if (err) {
-                res.send({'error':'An error has occurred - ' + err});
-            } else {
-                console.log('' + result + ' document(s) deleted');
-                res.send(req.body);
-            }
-        });
+    //set up connection with db
+    mongo.connect (url, function (err, db)
+    { if (err)throw err;
+    
+            //query collection by pattern 
+            db.collection('frameworks').find ({"busType": "" + type, "type": "catalog"}).toArray (function (err, result)
+            {
+                res.send (result);
+            });
+        
+        db.close ();
     });
-}
+};
