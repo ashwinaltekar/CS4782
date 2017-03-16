@@ -1,12 +1,16 @@
 var mongo = require('mongodb').MongoClient;
 
-//this is used to create the connection url to the database
+/**
+ * This is used to connect to mongodb.
+ **/
 var dbinfo = require ('./config.json');
 var url = 'mongodb://' + dbinfo.user + ':' + dbinfo.password + '@' + dbinfo.location + 
 			':' + dbinfo.port +'/' + dbinfo.name;
 
 /**
- * Gets the framework catalog of a specific framework
+ * Author: Jason Klamert
+ * Date: 3/15/2017
+ * Description: Gets the framework catalog of a specific framework
  **/
 exports.findFrameworkByName = function(req, res) {
     var name = req.params.name;
@@ -28,7 +32,9 @@ exports.findFrameworkByName = function(req, res) {
 };
 
 /**
- *Gets all framework catalogs and returns them
+ * Author: Jason Klamert
+ * Date: 3/15/2017
+ * Description: Gets all of the frameworks.
  **/
 exports.findAllFrameworks = function(req, res) {
 	
@@ -49,7 +55,9 @@ exports.findAllFrameworks = function(req, res) {
 };
 
 /**
- * Gets all controls by a particular framework id
+ * Author: Jason Klamert
+ * Date: 3/15/2017
+ * Description: Gets all of the controls for a framework.
  **/
 exports.findAllFrameworkControls = function(req, res) {
     var name = req.params.name;
@@ -72,7 +80,9 @@ exports.findAllFrameworkControls = function(req, res) {
 };
 
 /**
- * Gets a control by a particular framework id and a name
+ * Author: Jason Klamert
+ * Date: 3/15/2017
+ * Description: Find control by both framework name and control name.
  **/
 exports.findFrameworkControlByFrameworkNameAndControlName = function(req, res) {
 	var fname = req.params.fname;
@@ -96,7 +106,9 @@ exports.findFrameworkControlByFrameworkNameAndControlName = function(req, res) {
 };
 
 /**
- * Gets a set of one or more frameworks by business type.
+ * Author: Jason Klamert
+ * Date: 3/15/2017
+ * Description: Function that finds all frameworks with a given business type.
  **/
 exports.findFrameworkByBusinessType = function(req, res) {
     var type = req.params.type;
