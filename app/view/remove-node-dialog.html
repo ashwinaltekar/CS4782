@@ -1,0 +1,15 @@
+<div class="ngdialog-message">
+    <h4>Remove selected node? Cannot be undone!</h4>
+    <p>This will remove the node, and ALL of its data!</p>
+    <strong>Name:</strong> {{vm.node.name}}<br>
+    <strong>Children:</strong> {{vm.node.children.length ? vm.node.children.length : 'None'}}
+    <li ng-repeat="child in vm.node.children">
+        {{child.name}}
+    </li>
+</div>
+<div class="ngdialog-buttons">
+    <div class="pull-right">
+        <button class="btn btn-danger" ng-click="confirm(vm.node)">Remove</button>
+        <button class="btn btn-default" ng-click="closeThisDialog('button')">Cancel</button>
+    </div>
+</div>

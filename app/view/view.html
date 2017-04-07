@@ -5,14 +5,20 @@
                 <div class="pull-right">
                     <!--<button class="btn btn-xs btn-default" ng-click="vm.expandAll()">Expand all</button>-->
                     <!--<button class="btn btn-xs btn-default" ng-click="vm.collapseAll()">Collapse all</button>-->
-                    <a class="btn btn-primary btn-xs" data-nodrag ng-click="vm.addSubItem()" ng-disabled="true">
+                    <a class="btn btn-primary btn-xs" data-nodrag ng-click="vm.add(vm.data)">
                         <i class="fa fa-plus"></i>
                     </a>
-                    <a class="btn btn-info btn-xs" data-nodrag ng-click="vm.edit()" ng-disabled="true">
+                    <a class="btn btn-info btn-xs" data-nodrag ng-click="vm.edit()" ng-disabled="!vm.selectedNode">
                         <i class="fa fa-pencil"></i>
                     </a>
-                    <a class="btn btn-danger btn-xs" data-nodrag ng-click="vm.remove()" ng-disabled="true">
+                    <a class="btn btn-danger btn-xs" data-nodrag ng-click="vm.remove()" ng-disabled="!vm.selectedNode">
                         <i class="fa fa-times"></i>
+                    </a>
+                    <a class="btn btn-default btn-xs" data-nodrag ng-click="vm.clearSelection()" ng-disabled="!vm.selectedNode">
+                        Clear
+                    </a>
+                    <a class="btn btn-warning btn-xs" data-nodrag ng-click="vm.exportJson(vm.data)" ng-disabled="!vm.data.length">
+                        Export
                     </a>
                 </div>
             </h4>
@@ -26,7 +32,7 @@
     <div id="main">
         <div class="col-md-12">
             <div ng-if="vm.selectedNode">
-                <h3>{{vm.selectedNode.name}} ({{vm.selectedNode.uId}})</h3>
+                <h3>{{vm.selectedNode.name}}</h3>
                 <p ng-if="vm.selectedNode.description.length">
                     <strong>Description</strong><br>
                     {{vm.selectedNode.description}}
@@ -41,18 +47,19 @@
             <hr>
             <div class="input-group">
                 <label class="input-group-btn">
-                        <span class="btn btn-primary">
-                            Browse &hellip; <input type="file" id="selectFiles" style="display: none;">
-                        </span>
+                    <span class="btn btn-primary">
+                        Browse &hellip; <input type="file" id="selectFiles" style="display: none;" custom-on-change="vm.loadFile">
+                    </span>
                 </label>
-                <input type="text" class="form-control" readonly>
+                <input type="text" ng-model="vm.fileName" class="form-control" readonly>
 
                 <span class="input-group-btn">
-                        <button id="import" class="btn btn-success">Import</button>
-                    </span>
+                    <button id="import" class="btn btn-success" ng-click="vm.importJson()" ng-disabled="!vm.fileName.length > 0">Import</button>
+                    <button class="btn btn-default" ng-click="vm.fileName = ''">Clear</button>
+                </span>
             </div>
             <br>
-            <textarea id="result" rows="7" class="form-control"></textarea>
+            <textarea ng-model="vm.parsedResultView" rows="7" class="form-control" ng-disabled="true"></textarea>
         </div>
     </div>
 </div>

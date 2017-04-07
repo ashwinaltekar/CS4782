@@ -4,8 +4,8 @@
     angular.module('csApp', [
         'ui.bootstrap',
         'ui.router',
-        'treeControl',
         'ngAnimate',
-        'ui.tree'
+        'ui.tree',
+        'ngDialog'
     ]);
 }());

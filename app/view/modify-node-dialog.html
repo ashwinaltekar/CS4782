@@ -1,0 +1,14 @@
+<div class="ngdialog-message">
+    <form name="modifyNodeForm" novalidate>
+        <strong>Name</strong>
+        <input type="text" ng-model="vm.node.name" class="form-control" placeholder="Name" ng-required="true">
+        <strong>Description</strong>
+        <textarea ng-model="vm.node.description" class="form-control" placeholder="Description"></textarea>
+    </form>
+</div>
+<div class="ngdialog-buttons">
+    <div class="pull-right">
+        <button class="btn btn-success" ng-click="confirm(vm.node)" ng-disabled="modifyNodeForm.$invalid">Save</button>
+        <button class="btn btn-danger" ng-click="closeThisDialog('button')">Cancel</button>
+    </div>
+</div>
