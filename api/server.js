@@ -16,6 +16,7 @@ app.get('/api/frameworks/type/:type', framework.findFrameworkByBusinessType);
 
 app.get('/api/frameworks/:name/controls', framework.findAllFrameworkControls);
 app.get('/api/frameworks/:fname/controls/:name', framework.findFrameworkControlByFrameworkNameAndControlName);
+app.get('/api/references/:name', framework.findControlsByReference);
 
 
 
