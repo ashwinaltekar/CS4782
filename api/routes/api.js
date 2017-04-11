@@ -128,3 +128,54 @@ exports.findFrameworkByBusinessType = function(req, res) {
         db.close ();
     });
 };
+
+/**
+ * Author: Jacob Taylor
+ * Date: 3/15/2017
+ * Description: Function that gets a reference document then finds all controls related to it
+ **/
+exports.findControlsByReference = function (req, res)
+{
+	var name = req.params.name;
+	
+	  console.log ("Getting controls by reference document " + name);
+	  
+	  //get the controls from  a list of given references
+	  var getcontrolsfromreference = function (references)
+	  {
+		   //set up connection with db
+			mongo.connect (url, function (err, db)
+			{ if (err)throw err;
+				
+				db.collection('frameworks').find ({"id": {$in: references}}).toArray (function (err, result)
+				{
+					console.log (result);
+					res.send (result);
+				});
+        
+			db.close ();
+		});
+	  }
+	  
+	  //get a reference document by name
+	  var getreferencebyname = function (name, callback)
+	  {
+		   //set up connection with db
+			mongo.connect (url, function (err, db)
+			{ if (err)throw err;
+				
+				 //first get the reference document
+				db.collection('references').find ({"name" : name}).toArray (function (err, result)
+				{
+					
+					callback (result[0].references);
+				});
+        
+			db.close ();
+		});
+	  }
+	  
+	  //do the various calls
+	  getreferencebyname (name, getcontrolsfromreference);
+	
+};
