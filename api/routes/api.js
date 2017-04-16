@@ -113,7 +113,7 @@ exports.findFrameworkControlByFrameworkNameAndControlName = function(req, res) {
 exports.findFrameworkByBusinessType = function(req, res) {
     var type = req.params.type;
 
-    console.log ("Getting set of frameworks from type" + type);
+    console.log ("Getting set of frameworks from type " + type);
 
     //set up connection with db
     mongo.connect (url, function (err, db)
@@ -179,3 +179,33 @@ exports.findControlsByReference = function (req, res)
 	  getreferencebyname (name, getcontrolsfromreference);
 	
 };
+
+/**
+ * Author: Jason Klamert
+ * Date: 4/16/2017
+ * Description: Function that finds all similar controls from the provided description.
+ **/
+exports.findSimilarControlsByDescription = function (req, res)
+{
+	var description = req.params.description;
+
+    console.log ("Getting set of similar controls based on description " + description);
+
+    //set up connection with db
+    mongo.connect (url, function (err, db)
+    { if (err)throw err;
+    
+    //query frameworks collection for similar controls by using the search text feature of mongodb.
+    db.collection('frameworks').find ({
+	"type": "control",
+	"$text" : {
+		"$search": "" + description
+	}
+}).toArray (function (err, result)
+            {
+                res.send (result);
+            });
+        
+        db.close ();
+    });
+}
