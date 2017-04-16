@@ -1,0 +1,7 @@
+{
+	"name" : "cs4782",
+	"user" : "dbuser",
+	"password" : "identifier321",
+	"location": "ds119370.mlab.com",
+	"port" : "19370"
+}
