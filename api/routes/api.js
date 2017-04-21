@@ -147,11 +147,22 @@ exports.findControlsByReference = function (req, res)
 			mongo.connect (url, function (err, db)
 			{ if (err)throw err;
 				
-				db.collection('frameworks').find ({"id": {$in: references}}).toArray (function (err, result)
+				if (references.references)
 				{
-					console.log (result);
-					res.send (result);
-				});
+					db.collection('frameworks').find ({"id": {$in: references.references}}).toArray (function (err, result)
+					{
+						console.log (result);
+						res.send (result);
+					});
+				}
+				else if (references.description)
+				{
+					db.collection('frameworks').find ({"$text": {"$search": references.description}}).toArray (function (err, result)
+					{
+						console.log (result);
+						res.send (result);
+					});
+				}
         
 			db.close ();
 		});
@@ -168,7 +179,7 @@ exports.findControlsByReference = function (req, res)
 				db.collection('references').find ({"name" : name}).toArray (function (err, result)
 				{
 					
-					callback (result[0].references);
+					callback (result[0]);
 				});
         
 			db.close ();
