@@ -17,6 +17,7 @@ app.get('/api/frameworks/:fname/controls/:name', framework.findFrameworkControlB
 app.get('/api/references/:name', framework.findControlsByReference);
 app.get('/api/frameworks/controls/like/:description', framework.findSimilarControlsByDescription);
 app.get('/api/frameworks/controls/:control/tag/:tag', framework.addTagToControl);
+app.get('/api/frameworks/controls/tag/:tag', framework.findControlsByTag);
 
 app.listen(3000);
 console.log('Listening on port 3000...');
