@@ -147,11 +147,22 @@ exports.findControlsByReference = function (req, res)
 			mongo.connect (url, function (err, db)
 			{ if (err)throw err;
 				
-				db.collection('frameworks').find ({"id": {$in: references}}).toArray (function (err, result)
+				if (references.references)
 				{
-					console.log (result);
-					res.send (result);
-				});
+					db.collection('frameworks').find ({"id": {$in: references.references}}).toArray (function (err, result)
+					{
+						console.log (result);
+						res.send (result);
+					});
+				}
+				else if (references.description)
+				{
+					db.collection('frameworks').find ({"$text": {"$search": references.description}}).toArray (function (err, result)
+					{
+						console.log (result);
+						res.send (result);
+					});
+				}
         
 			db.close ();
 		});
@@ -168,7 +179,7 @@ exports.findControlsByReference = function (req, res)
 				db.collection('references').find ({"name" : name}).toArray (function (err, result)
 				{
 					
-					callback (result[0].references);
+					callback (result[0]);
 				});
         
 			db.close ();
@@ -208,4 +219,64 @@ exports.findSimilarControlsByDescription = function (req, res)
         
         db.close ();
     });
+}
+
+/**
+ * Author: Jason Klamert
+ * Date: 4/21/2017
+ * Description: Function that updates a control object to have the given tag passed to the api.
+ **/
+exports.addTagToControl = function (req, res)
+{
+	var tag = req.params.tag;
+	var control = req.params.control;
+
+    console.log ("Adding tag: \"" + tag + "\" to control: \"" + control + "\".");
+
+	/**
+	 * Update the tag on the control from the database.
+	 **/
+	var updateControlWithTag = function(foundTag)
+	{
+			mongo.connect (url, function (err, db)
+			{ 
+				if (err)throw err;
+				
+	    		tag = foundTag + " " + tag;
+
+			    /**
+				 * Query the frameworks collection to take existing tags and insert a new tag.
+				 **/
+				db.collection('frameworks').updateOne({
+					"_id" : "" + control,
+					"type": "control",
+					"name" : "" + control
+				},
+				{
+					$set: {"tag": "" + tag}
+				});
+        
+			db.close ();
+		});
+	  }
+	  
+	/**
+	 * Get the control from the database.
+	 **/
+	var getControlByName = function (name, callback)
+	{
+		mongo.connect (url, function (err, db)
+		{ 
+			if (err)throw err;
+			
+			db.collection('frameworks').find({"_id" : "" + control, "name": "" + control, "type": "control"}).toArray(function (err, result)
+			{	
+				callback (result[0].tag);
+			});
+       
+		db.close ();
+		});
+	  }
+	  
+	  getControlByName(control, updateControlWithTag);
 }
