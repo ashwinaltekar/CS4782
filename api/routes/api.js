@@ -113,7 +113,7 @@ exports.findFrameworkControlByFrameworkNameAndControlName = function(req, res) {
 exports.findFrameworkByBusinessType = function(req, res) {
     var type = req.params.type;
 
-    console.log ("Getting set of frameworks from type" + type);
+    console.log ("Getting set of frameworks from type " + type);
 
     //set up connection with db
     mongo.connect (url, function (err, db)
@@ -147,11 +147,22 @@ exports.findControlsByReference = function (req, res)
 			mongo.connect (url, function (err, db)
 			{ if (err)throw err;
 				
-				db.collection('frameworks').find ({"id": {$in: references}}).toArray (function (err, result)
+				if (references.references)
 				{
-					console.log (result);
-					res.send (result);
-				});
+					db.collection('frameworks').find ({"id": {$in: references.references}}).toArray (function (err, result)
+					{
+						console.log (result);
+						res.send (result);
+					});
+				}
+				else if (references.description)
+				{
+					db.collection('frameworks').find ({"$text": {"$search": references.description}}).toArray (function (err, result)
+					{
+						console.log (result);
+						res.send (result);
+					});
+				}
         
 			db.close ();
 		});
@@ -167,8 +178,7 @@ exports.findControlsByReference = function (req, res)
 				 //first get the reference document
 				db.collection('references').find ({"name" : name}).toArray (function (err, result)
 				{
-					
-					callback (result[0].references);
+					callback (result[0]);
 				});
         
 			db.close ();
@@ -179,3 +189,122 @@ exports.findControlsByReference = function (req, res)
 	  getreferencebyname (name, getcontrolsfromreference);
 	
 };
+
+/**
+ * Author: Jason Klamert
+ * Date: 4/16/2017
+ * Description: Function that finds all similar controls from the provided description.
+ **/
+exports.findSimilarControlsByDescription = function (req, res)
+{
+	var description = req.params.description;
+
+    console.log ("Getting set of similar controls based on description: " + description);
+
+    //set up connection with db
+    mongo.connect (url, function (err, db)
+    { if (err)throw err;
+    
+    //query frameworks collection for similar controls by using the search text feature of mongodb.
+    db.collection('frameworks').find ({
+	"type": "control",
+	"$text" : {
+		"$search": "" + description
+	}
+	}).toArray (function (err, result)
+            {
+                res.send (result);
+            });
+        
+        db.close ();
+    });
+}
+
+/**
+ * Author: Jason Klamert
+ * Date: 4/21/2017
+ * Description: Function that finds all similar controls from tag.
+ **/
+exports.findControlsByTag = function (req, res)
+{
+	var tag = req.params.tag;
+
+    console.log ("Getting set of controls based on tag: " + tag);
+
+    mongo.connect (url, function (err, db)
+    { if (err)throw err;
+    
+    db.collection('frameworks').find ({
+	"type": "control",
+	"tag" : "" + tag
+	
+	}).toArray (function (err, result)
+            {
+                res.send (result);
+            });
+        
+        db.close ();
+    });
+}
+
+/**
+ * Author: Jason Klamert
+ * Date: 4/21/2017
+ * Description: Function that updates a control object to have the given tag passed to the api.
+ **/
+exports.addTagToControl = function (req, res)
+{
+	var tag = req.params.tag;
+	var control = req.params.control;
+
+    console.log ("Adding tag: \"" + tag + "\" to control: \"" + control + "\".");
+
+	/**
+	 * Update the tag on the control from the database.
+	 **/
+	var updateControlWithTag = function(foundTag)
+	{
+			mongo.connect (url, function (err, db)
+			{ 
+				if (err)throw err;
+	    		
+	    		foundTag.push(tag);
+
+			    /**
+				 * Query the frameworks collection to take existing tags and insert a new tag.
+				 **/
+				db.collection('frameworks').updateOne({
+					"_id" : "" + control,
+					"type": "control",
+					"name" : "" + control
+				},
+				{
+					$set: {"tag": foundTag}
+				});
+
+				res.send();
+        
+			db.close ();
+		});
+	  }
+	  
+	/**
+	 * Get the control from the database.
+	 **/
+	var getControlByName = function (name, callback)
+	{
+		mongo.connect (url, function (err, db)
+		{ 
+			if (err)throw err;
+			
+			db.collection('frameworks').find({"_id" : "" + control, "name": "" + control, "type": "control"}).toArray(function (err, result)
+			{	
+				callback (result[0].tag);
+			});
+       
+		db.close ();
+		});
+	  }
+	  
+	  getControlByName(control, updateControlWithTag);
+}
