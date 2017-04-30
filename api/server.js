@@ -34,6 +34,7 @@ passport.use(new LocalStrategy(
 app.get('/api/frameworks', framework.findAllFrameworks);
 app.get('/api/frameworks/:name', framework.findFrameworkByName);
 app.get('/api/frameworks/type/:type', framework.findFrameworkByBusinessType);
+app.get('/api/typelist', framework.findBuisnessTypesList);
 
 app.get('/api/frameworks/:name/controls', framework.findAllFrameworkControls);
 app.get('/api/frameworks/:fname/controls/:name', framework.findFrameworkControlByFrameworkNameAndControlName);
