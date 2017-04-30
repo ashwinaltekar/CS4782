@@ -1,66 +1,80 @@
-<div class="row-offcanvas row-offcanvas-left" ng-controller="ViewController as vm">
-    <div id="sidebar" class="sidebar-offcanvas">
-        <div class="col-md-12">
-            <h4>NIST
-                <div class="pull-right">
-                    <!--<button class="btn btn-xs btn-default" ng-click="vm.expandAll()">Expand all</button>-->
-                    <!--<button class="btn btn-xs btn-default" ng-click="vm.collapseAll()">Collapse all</button>-->
-                    <a class="btn btn-primary btn-xs" data-nodrag ng-click="vm.add(vm.data)">
-                        <i class="fa fa-plus"></i>
-                    </a>
-                    <a class="btn btn-info btn-xs" data-nodrag ng-click="vm.edit()" ng-disabled="!vm.selectedNode">
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class="btn btn-danger btn-xs" data-nodrag ng-click="vm.remove()" ng-disabled="!vm.selectedNode">
-                        <i class="fa fa-times"></i>
-                    </a>
-                    <a class="btn btn-default btn-xs" data-nodrag ng-click="vm.clearSelection()" ng-disabled="!vm.selectedNode">
-                        Clear
-                    </a>
-                    <a class="btn btn-warning btn-xs" data-nodrag ng-click="vm.exportJson(vm.data)" ng-disabled="!vm.data.length">
-                        Export
-                    </a>
-                </div>
-            </h4>
-            <div ui-tree id="tree-root">
-                <ol ui-tree-nodes ng-model="vm.data">
-                    <li ng-repeat="node in vm.data" ui-tree-node data-expand-on-hover="true" ng-include="'view/tree-template.html'" ng-if="!collapsed"></li>
-                </ol>
-            </div>
+<div class="col-xs-12 col" ng-controller="ViewController as vm">
+
+    <div class="text-center">
+        <!--<button class="btn btn-xs btn-default" ng-click="vm.expandAll()">Expand all</button>-->
+        <!--<button class="btn btn-xs btn-default" ng-click="vm.collapseAll()">Collapse all</button>-->
+        <a class="btn btn-primary btn-xs" data-nodrag ng-click="vm.add(vm.data)">
+            <i class="fa fa-plus"></i>
+        </a>
+        <a class="btn btn-info btn-xs" data-nodrag ng-click="vm.edit()" ng-disabled="!vm.selectedNode">
+            <i class="fa fa-pencil"></i>
+        </a>
+        <a class="btn btn-danger btn-xs" data-nodrag ng-click="vm.remove()" ng-disabled="!vm.selectedNode">
+            <i class="fa fa-times"></i>
+        </a>
+        <a class="btn btn-default btn-xs" data-nodrag ng-click="vm.clearSelection()" ng-disabled="!vm.selectedNode">
+            Clear
+        </a>
+        <a class="btn btn-warning btn-xs" data-nodrag ng-click="vm.exportJson(vm.data)" ng-disabled="!vm.data.length">
+            Export
+        </a>
+    </div>
+
+    <div class="col-xs-2 col">
+        <h4>Industries & Frameworks</h4>
+        <div ui-tree id="tree-framework" data-drag-enabled="false" data-nodrop-enabled="true">
+            <ol ui-tree-nodes ng-model="vm.industriesAndFrameworks">
+                <li ng-repeat="node in vm.industriesAndFrameworks" ui-tree-node data-expand-on-hover="true" ng-include="'view/tree-template-fw.html'" ng-if="!collapsed"></li>
+            </ol>
         </div>
     </div>
-    <p id ="test"></p>
-    <div id="main">
-        <div class="col-md-12">
-            <div ng-if="vm.selectedNode">
-                <h3>{{vm.selectedNode.name}}</h3>
-                <p ng-if="vm.selectedNode.description.length">
-                    <strong>Description</strong><br>
-                    {{vm.selectedNode.description}}
-                </p>
-                <div ng-if="vm.selectedNode.children.length">
-                    <strong>Children</strong><br>
-                    <li ng-repeat="child in vm.selectedNode.children">
-                        {{child.name}}
-                    </li>
-                </div>
+
+    <div class="col-xs-4 col">
+        <h4>Framework(s) Details</h4>
+        <div ui-tree id="tree-root" data-nodrop-enabled="false" >
+            <ol ui-tree-nodes ng-model="vm.frameworkDetail">
+                <li ng-repeat="node in vm.frameworkDetail" ui-tree-node data-expand-on-hover="true" ng-include="'view/tree-template.html'" ng-if="!collapsed"></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="col-xs-6 col">
+        <h4>Custom</h4>
+        <div ui-tree id="tree-custom">
+            <ol ui-tree-nodes ng-model="vm.customTree">
+                <li ng-repeat="node in vm.customTree" ui-tree-node data-expand-on-hover="true" ng-include="'view/tree-template.html'" ng-if="!collapsed"></li>
+            </ol>
+        </div>
+        <!---->
+
+        <div ng-if="vm.selectedNode">
+            <h3>{{vm.selectedNode.name}}</h3>
+            <p ng-if="vm.selectedNode.description.length">
+                <strong>Description</strong><br>
+                {{vm.selectedNode.description}}
+            </p>
+            <div ng-if="vm.selectedNode.children.length">
+                <strong>Children</strong><br>
+                <li ng-repeat="child in vm.selectedNode.children">
+                    {{child.name}}
+                </li>
             </div>
-            <hr>
-            <div class="input-group">
-                <label class="input-group-btn">
+        </div>
+        <hr>
+        <div class="input-group">
+            <label class="input-group-btn">
                     <span class="btn btn-primary">
                         Browse &hellip; <input type="file" id="selectFiles" style="display: none;" custom-on-change="vm.loadFile">
                     </span>
-                </label>
-                <input type="text" ng-model="vm.fileName" class="form-control" readonly>
+            </label>
+            <input type="text" ng-model="vm.fileName" class="form-control" readonly>
 
-                <span class="input-group-btn">
+            <span class="input-group-btn">
                     <button id="import" class="btn btn-success" ng-click="vm.importJson()" ng-disabled="!vm.fileName.length > 0">Import</button>
                     <button class="btn btn-default" ng-click="vm.fileName = ''">Clear</button>
                 </span>
-            </div>
-            <br>
-            <textarea ng-model="vm.parsedResultView" rows="7" class="form-control" ng-disabled="true"></textarea>
         </div>
+        <br>
+        <textarea ng-model="vm.parsedResultView" rows="7" class="form-control" ng-disabled="true"></textarea>
     </div>
 </div>

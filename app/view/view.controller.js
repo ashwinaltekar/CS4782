@@ -10,11 +10,11 @@
         vm.selectedNode = null;
         vm.selectedNodeScope = null;
         vm.fileName = "";
+        vm.frameworkDetail = [];
 
         HomeService.get()
             .then(function (response) {
-                vm.data = response;
-                vm.root = tree.parse(vm.data);
+                vm.frameworkDetail = response[0].begin;
 
                 // var nodeFound = vm.root.first(idIn(["ID"]));
                 // if (nodeFound) {
@@ -24,10 +24,45 @@
                 // }
             });
 
+        HomeService.getIndustriesAndFrameworks()
+            .then(function (response) {
+                vm.industriesAndFrameworks = response;
+            });
+
+        vm.customTree = [{
+            'uId': 1,
+            'name': 'tree1 - item1',
+            'description': 'tree1 - item1',
+            'children': []
+        }, {
+            'uId': 2,
+            'name': 'tree1 - item2',
+            'description': 'tree1 - item2',
+            'children': []
+        }, {
+            'uId': 3,
+            'name': 'tree1 - item3',
+            'description': 'tree1 - item3',
+            'children': []
+        }, {
+            'uId': 4,
+            'name': 'tree1 - item4',
+            'description': 'tree1 - item4',
+            'children': [
+                {
+                    'uId': 5,
+                    'name': 'tree1 - item4.1',
+                    'description': 'tree1 - item4.1',
+                    'children': []
+                }
+            ]
+        }];
+
         vm.expandAll = expandAll;
         vm.collapseAll = collapseAll;
-        vm.toggleNode = toggleNode;
-
+        vm.toggleNodeCollapse = toggleNodeCollapse;
+        vm.toggleNodeCheck = toggleNodeCheck;
+        vm.cascadeCheckFromParent = cascadeCheckFromParent;
 
         vm.loadFile = loadFile;
         vm.importJson = importJson;
@@ -38,11 +73,12 @@
 
         vm.add = add;
         vm.edit = edit;
+        vm.edit = edit;
         vm.remove = remove;
 
         vm.moveLastToTheBeginning = function() {
-            var a = vm.data.pop();
-            vm.data.splice(0, 0, a);
+            var a = vm.frameworkDetail.pop();
+            vm.frameworkDetail.splice(0, 0, a);
         };
 
         function getNodePathArray(root, selectedNode) {
@@ -75,9 +111,34 @@
             $scope.$broadcast('angular-ui-tree:collapse-all');
         }
 
-        function toggleNode(node, event) {
+        function toggleNodeCollapse(node, event) {
             node.toggle();
             event.preventDefault();
+        }
+
+        function toggleNodeCheck(node, event) {
+            node.checked = !node.checked;
+
+            if (node.checked) {
+                HomeService.getFrameworkDetails(node.code)
+                    .then(function (response) {
+                        vm.frameworkDetail = [].concat(vm.frameworkDetail, response[0].begin);
+                    });
+            }
+
+            if (node.children.length) {
+                vm.cascadeCheckFromParent(node.children, node.checked);
+            }
+            event.preventDefault();
+        }
+
+        function cascadeCheckFromParent(children, status) {
+            for (var i = 0; i < children.length; ++i) {
+                var node = children[i];
+                node.checked = status;
+                if (node.children.length)
+                    vm.cascadeCheckFromParent(node.children, status)
+            }
         }
 
         function selectNode(node, scope, event) {
@@ -222,7 +283,7 @@
 
         function importJson() {
             if (vm.parsedResult) {
-                vm.data = vm.parsedResult;
+                vm.frameworkDetail = vm.parsedResult;
             }
         }
 

@@ -1,0 +1,58 @@
+[
+  {
+    "uId": "industry1",
+    "name": "General",
+    "code": "nistcsf",
+    "children": [
+      {
+        "uId": "industry2.1",
+        "name": "NIST CSF",
+        "code": "nistcsf",
+        "children": []
+      },
+      {
+        "uId": "industry2.2",
+        "name": "SANS-CIS",
+        "code": "SANS-CIS",
+        "children": []
+      }
+    ]
+  },
+  {
+    "uId": "industry2",
+    "name": "Student Records",
+    "children": [
+      {
+        "uId": "industry2.1",
+        "name": "Student Records 1",
+        "children": []
+      },
+      {
+        "uId": "industry2.2",
+        "name": "Student Records 2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "uId": "industry3",
+    "name": "Health",
+    "children": [
+      {
+        "uId": "industry3.1",
+        "name": "Health 1",
+        "children": []
+      },
+      {
+        "uId": "industry3.2",
+        "name": "Health 2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "uId": "industry4",
+    "name": "Other",
+    "children": []
+  }
+]

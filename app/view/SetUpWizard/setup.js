@@ -1,19 +1,10 @@
-/**
- * Created by Harprabh Sangha on 4/1/2017.
- */
-
-// var app = angular.module('csApp');
-//
-// // angular.module('csApp').controller('ChooseIndCtrl', function ($scope) {
-// app.controller('ChooseIndCtrl',
-
 (function () {
     'use strict';
     angular.module('csApp').controller('ChooseIndCtrl', setup);
-    view.$inject = ['$scope', 'HomeService'];
+    setup.$inject = ['$scope', 'HomeService'];
 
 
-    function view($scope, HomeService){
+    function setup($scope, HomeService){
 
         $scope.formData = {
             general: true,
