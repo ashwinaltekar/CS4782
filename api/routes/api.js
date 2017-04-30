@@ -308,3 +308,33 @@ exports.addTagToControl = function (req, res)
 	  
 	  getControlByName(control, updateControlWithTag);
 }
+
+/**
+ * Author: Jacob Taylor
+ * Date: 4/30/2017
+ * Description: authenticate credentils with database
+ **/
+ exports.authenticateCredentials = function (username, password, callback)
+ {
+	 console.log ("Authenticating user with username " + username);
+	 
+	//set up connection with db
+    mongo.connect (url, function (err, db)
+    { if (err)throw err;
+			
+			console.log (password);
+            //query collection by pattern 
+            db.collection('credentials').find ({"username": "" + username, "password": "" + password}).toArray (function (err, result)
+            {
+				if (result.length > 0)
+				{
+					console.log (result);
+					callback(null, "yes");
+				}
+				else 
+					callback (null, false);
+            });
+        
+        db.close ();
+    });
+ }
