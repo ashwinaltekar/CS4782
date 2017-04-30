@@ -15,6 +15,10 @@
             .state('view', {
                 url: '/view',
                 templateUrl: 'view/view.html'
+            })
+            .state('test',{
+                url: '/view/SetUpWizard',
+                templateUrl: 'view/SetUpWizard/setup.html'
             });
 
         treeConfig.defaultCollapsed = true; // collapse nodes by default
