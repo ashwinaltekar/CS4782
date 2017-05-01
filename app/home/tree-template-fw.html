@@ -7,10 +7,10 @@
         <a data-nodrag ng-click="vm.toggleNodeCheck(node, $event)" ng-if="!node.children.length > 0">
             <i class="fa fa-lg fa-fw" ng-class="node.checked ? 'fa-check-square-o': 'fa-square-o'"></i>
         </a>
-        {{node.name}}
+        {{node.name || node.uId}}
     </div>
 </div>
 
 <ol ui-tree-nodes="" ng-model="node.children">
-    <li ng-repeat="node in node.children" ui-tree-node data-expand-on-hover="true" ng-include="'view/tree-template-fw.html'" ng-if="!collapsed"></li>
+    <li ng-repeat="node in node.children" ui-tree-node data-expand-on-hover="true" ng-include="'home/tree-template-fw.html'" ng-if="!collapsed"></li>
 </ol>

@@ -8,10 +8,10 @@
            data-nodrag ng-click="vm.toggleNodeCollapse(this, $event)">
             <i class="fa fa-fw" ng-class="collapsed ? 'fa-chevron-right': 'fa-chevron-down'"></i>
         </a>
-        {{node.name}}
+        {{node.name || node.uId}}
     </div>
 </div>
 
 <ol ui-tree-nodes="" ng-model="node.children">
-    <li ng-repeat="node in node.children" ui-tree-node data-expand-on-hover="true" ng-include="'view/tree-template.html'" ng-if="!collapsed"></li>
+    <li ng-repeat="node in node.children" ui-tree-node data-expand-on-hover="true" ng-include="'home/tree-template.html'" ng-if="!collapsed"></li>
 </ol>

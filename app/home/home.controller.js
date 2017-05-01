@@ -1,62 +1,27 @@
 (function () {
     'use strict';
 
-    angular.module('csApp').controller('ViewController', view);
+    angular.module('csApp').controller('HomeController', home);
 
-    view.$inject = ['$scope', 'HomeService', 'ngDialog'];
-    function view($scope, HomeService, ngDialog) {
+    home.$inject = ['$scope', 'HomeService', 'ngDialog'];
+    function home($scope, HomeService, ngDialog) {
         var vm = this;
-        var tree = new TreeModel();
         vm.selectedNode = null;
         vm.selectedNodeScope = null;
         vm.fileName = "";
+        vm.industriesAndFrameworks = [];
         vm.frameworkDetail = [];
+        vm.customFramework = [];
 
-        HomeService.get()
+        HomeService.getFrameworkDetails("nistcsf")
             .then(function (response) {
                 vm.frameworkDetail = response[0].begin;
-
-                // var nodeFound = vm.root.first(idIn(["ID"]));
-                // if (nodeFound) {
-                //     console.log(nodeFound.getPath());
-                // } else {
-                //     console.error("!nodeFound");
-                // }
             });
 
         HomeService.getIndustriesAndFrameworks()
             .then(function (response) {
                 vm.industriesAndFrameworks = response;
             });
-
-        vm.customFramework = [{
-            'uId': 1,
-            'name': 'tree1 - item1',
-            'description': 'tree1 - item1',
-            'children': []
-        }, {
-            'uId': 2,
-            'name': 'tree1 - item2',
-            'description': 'tree1 - item2',
-            'children': []
-        }, {
-            'uId': 3,
-            'name': 'tree1 - item3',
-            'description': 'tree1 - item3',
-            'children': []
-        }, {
-            'uId': 4,
-            'name': 'tree1 - item4',
-            'description': 'tree1 - item4',
-            'children': [
-                {
-                    'uId': 5,
-                    'name': 'tree1 - item4.1',
-                    'description': 'tree1 - item4.1',
-                    'children': []
-                }
-            ]
-        }];
 
         vm.expandAll = expandAll;
         vm.collapseAll = collapseAll;
@@ -75,33 +40,6 @@
         vm.edit = edit;
         vm.edit = edit;
         vm.remove = remove;
-
-        vm.moveLastToTheBeginning = function() {
-            var a = vm.frameworkDetail.pop();
-            vm.frameworkDetail.splice(0, 0, a);
-        };
-
-        function getNodePathArray(root, selectedNode) {
-            for (var i = 0; i < root.children.length; i++) {
-                if (root.children[i] === selectedNode)
-                    return [selectedNode];
-                else {
-                    var path = getNodePathArray(root.children[i], selectedNode);
-                    if (path)
-                        return path.unshift(selectedNode);
-                }
-            }
-            return null;
-        }
-
-
-        // Helper function to check if a node id matches any of the given ids
-        function idIn(ids) {
-            console.log(ids);
-            return function (node) {
-                return ids.indexOf(node.model.uId) !== -1;
-            };
-        }
 
         function expandAll() {
             $scope.$broadcast('angular-ui-tree:expand-all');
@@ -271,7 +209,6 @@
                 fr.onload = function(e) {
                     try {
                         vm.parsedResult = JSON.parse(e.target.result);
-                        // vm.parsedResultView = JSON.stringify(vm.parsedResult, null, 2);
 
                         $scope.$apply();
                     } catch(e) {
@@ -289,11 +226,11 @@
             }
         }
 
-        function exportJson(data) {
+        function exportJson(col, data) {
             var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
             var dlAnchorElem = document.getElementById('exportHelper');
             dlAnchorElem.setAttribute("href", dataStr);
-            dlAnchorElem.setAttribute("download", "security-fw-" + new Date().getTime() + ".json");
+            dlAnchorElem.setAttribute("download", "security-fw-" + col + new Date().getTime() + ".json");
             dlAnchorElem.click();
         }
     }
