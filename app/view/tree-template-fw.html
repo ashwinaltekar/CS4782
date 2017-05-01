@@ -4,7 +4,7 @@
            data-nodrag ng-click="vm.toggleNodeCollapse(this, $event)">
             <i class="fa fa-fw" ng-class="collapsed ? 'fa-chevron-right': 'fa-chevron-down'"></i>
         </a>
-        <a data-nodrag ng-click="vm.toggleNodeCheck(node, $event)">
+        <a data-nodrag ng-click="vm.toggleNodeCheck(node, $event)" ng-if="!node.children.length > 0">
             <i class="fa fa-lg fa-fw" ng-class="node.checked ? 'fa-check-square-o': 'fa-square-o'"></i>
         </a>
         {{node.name}}

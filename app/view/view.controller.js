@@ -29,7 +29,7 @@
                 vm.industriesAndFrameworks = response;
             });
 
-        vm.customTree = [{
+        vm.customFramework = [{
             'uId': 1,
             'name': 'tree1 - item1',
             'description': 'tree1 - item1',
@@ -126,9 +126,9 @@
                     });
             }
 
-            if (node.children.length) {
-                vm.cascadeCheckFromParent(node.children, node.checked);
-            }
+            // if (node.children.length) {
+            //     vm.cascadeCheckFromParent(node.children, node.checked);
+            // }
             event.preventDefault();
         }
 
@@ -262,28 +262,30 @@
         function loadFile() {
             vm.fileToImport = event.target.files[0];
 
-            vm.fileName = vm.fileToImport.name;
-            $scope.$apply();
+            if (vm.fileToImport) {
+                vm.fileName = vm.fileToImport.name;
+                $scope.$apply();
 
-            var fr = new FileReader();
+                var fr = new FileReader();
 
-            fr.onload = function(e) {
-                try {
-                    vm.parsedResult = JSON.parse(e.target.result);
-                    vm.parsedResultView = JSON.stringify(vm.parsedResult, null, 2);
+                fr.onload = function(e) {
+                    try {
+                        vm.parsedResult = JSON.parse(e.target.result);
+                        // vm.parsedResultView = JSON.stringify(vm.parsedResult, null, 2);
 
-                    $scope.$apply();
-                } catch(e) {
-                    ngDialog.open({ template: 'view/import-error-dialog.html', className: 'ngdialog-theme-default' });
-                }
-            };
+                        $scope.$apply();
+                    } catch(e) {
+                        ngDialog.open({ template: 'view/import-error-dialog.html', className: 'ngdialog-theme-default' });
+                    }
+                };
 
-            fr.readAsText(vm.fileToImport);
+                fr.readAsText(vm.fileToImport);
+            }
         }
 
         function importJson() {
             if (vm.parsedResult) {
-                vm.frameworkDetail = vm.parsedResult;
+                vm.customFramework = vm.parsedResult;
             }
         }
 
