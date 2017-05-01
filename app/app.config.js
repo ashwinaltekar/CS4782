@@ -6,7 +6,7 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider', 'treeConfig'];
     function config($stateProvider, $urlRouterProvider, treeConfig) {
 
-        $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.otherwise('/home');
         $stateProvider
             .state('login', {
                 url: '/login',

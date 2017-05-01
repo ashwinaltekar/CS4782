@@ -1,26 +1,27 @@
 (function () {
     'use strict';
-    angular.module('csApp').service('HomeService', home);
+    angular.module('csApp').service('LoginService', login);
 
-    home.$inject = ['$http', '$q'];
-    function home($http, $q) {
+    login.$inject = ['$http', '$q'];
+    function login($http, $q) {
         return {
-            getIndustriesAndFrameworks: getIndustriesAndFrameworks,
+            authenticate: authenticate,
             getFrameworkDetails: getFrameworkDetails
         };
 
-        function getIndustriesAndFrameworks() {
+        function authenticate(form) {
             var deferred = $q.defer();
-            return $http.get("asset/frameworks.json")
+            return $http.get("http://localhost:3000/api/login/" + JSON.stringify(form))
                 .then(callSuccess)
                 .catch(callError);
 
             function callSuccess(response) {
+                console.log(response);
                 deferred.resolve(response.data);
                 return deferred.promise;
             }
             function callError() {
-                deferred.reject("Error getting frameworks.");
+                deferred.reject("Error logging in.");
                 return deferred.promise;
             }
         }

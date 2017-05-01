@@ -119,3 +119,17 @@ tr.angular-ui-tree-empty {
     background: limegreen;
     color:#FEFEFA;
 }
+
+/* --- Login --- */
+.form-center {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.form-center.form-responsive {
+    height: 50%;
+    min-width: 400px;
+    max-width: 400px;
+    padding: 40px;
+}

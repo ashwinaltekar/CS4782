@@ -1,1 +1,28 @@
-<div>Login Page</div>
+<div class="container form-center form-responsive" ng-controller="LoginController as vm">
+    <div class="panel panel-default">
+        <div class="panel-heading"><strong class="">Login</strong></div>
+        <div class="panel-body">
+            <div ng-show="vm.showErrorMessage" class="alert alert-danger"><strong>{{vm.errorMessage}}</strong></div>
+            <form name="loginForm" novalidate>
+                <div class="form-group input-group">
+                    <span class="input-group-addon"><i class="fa fa-fw fa-lg fa-user"></i></span>
+                    <input class="form-control" type="text" name='username' ng-model="vm.loginForm.username" placeholder="Username" ng-required="true"/>
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-addon"><i class="fa fa-fw fa-lg fa-key"></i></span>
+                    <input class="form-control" type="password" name='password' ng-model="vm.loginForm.password" placeholder="Password" ng-required="true"/>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6 col">
+                        <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-success btn-sm btn-block"
+                                ng-click="vm.login(vm.loginForm)">Sign in</button>
+                    </div>
+                    <div class="col-xs-6 col">
+                        <button type="reset" class="btn btn-default btn-sm btn-block">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
