@@ -367,10 +367,10 @@ exports.addTagToControl = function (req, res)
 				if (result.length > 0)
 				{
 					console.log (result);
-					callback(null, "yes");
+					callback(null, "ACK");
 				}
 				else 
-					callback (null, false);
+					callback (null, "NACK");
             });
         
         db.close ();
