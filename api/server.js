@@ -44,10 +44,13 @@ app.get('/api/frameworks/controls/:control/tag/:tag', framework.addTagToControl)
 app.get('/api/frameworks/controls/tag/:tag', framework.findControlsByTag);
 
 
-app.post('/api/login',
-  passport.authenticate('local', { successRedirect: '/api/success',
-  failureRedirect: '/api/failure', session: false})
-);
+app.post('/api/login', function(req, res, next) {
+	console.log (req.body);
+  passport.authenticate('local', {session: false}, function(err, user, info) {
+	res.send(user);
+  })(req, res, next);
+});
+  
 
 app.listen(3000);
 console.log('Listening on port 3000...');
