@@ -96,16 +96,19 @@ exports.findBuisnessTypesList = function (req, res)
 		db.collection('frameworks').find ({"type":"catalog"}).sort ({"busType": 1}).toArray (function (err, result)
 		{
 			
-			var endResult = new Array();
+			var endResult = {};
 			for (var i = 0; i < result.length; i++)
 			{
-				if (!endResult['' + result[i].busType])
-					endResult['' + result[i].busType] = new Array();
+				if (!endResult["" + result[i].busType])
+					endResult[ "" + result[i].busType] = new Array();
 				
 				var temp = endResult[''+ result[i].busType];
-				endResult["" + result[i].busType][temp.length] = result[i].name;
+				endResult["" + result[i].busType][temp.length] = "" +result[i].name + "";
 			}
 			
+			console.log (endResult);
+			var h = JSON.stringify (endResult);
+			console.log (h);
 			res.send (endResult);
 		});
 		
