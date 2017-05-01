@@ -11,7 +11,7 @@
 
         function authenticate(form) {
             var deferred = $q.defer();
-            return $http.get("http://localhost:3000/api/login/" + JSON.stringify(form))
+            return $http.post("http://localhost:3000/api/login/" + angular.toJson(form))
                 .then(callSuccess)
                 .catch(callError);
 
