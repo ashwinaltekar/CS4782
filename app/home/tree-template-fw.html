@@ -1,0 +1,16 @@
+<div class="tree-node" ng-class="{nodeActive:vm.selectedNode.uId == node.uId}">
+    <div class="tree-node-content" ng-click="vm.selectNode(node, this, $event)">
+        <a class="btn btn-success btn-xs" ng-if="node.children && node.children.length > 0"
+           data-nodrag ng-click="vm.toggleNodeCollapse(this, $event)">
+            <i class="fa fa-fw" ng-class="collapsed ? 'fa-chevron-right': 'fa-chevron-down'"></i>
+        </a>
+        <a data-nodrag ng-click="vm.toggleNodeCheck(node, $event)" ng-if="!node.children.length > 0">
+            <i class="fa fa-lg fa-fw" ng-class="node.checked ? 'fa-check-square-o': 'fa-square-o'"></i>
+        </a>
+        {{node.name || node.uId}}
+    </div>
+</div>
+
+<ol ui-tree-nodes="" ng-model="node.children">
+    <li ng-repeat="node in node.children" ui-tree-node data-expand-on-hover="true" ng-include="'home/tree-template-fw.html'" ng-if="!collapsed"></li>
+</ol>

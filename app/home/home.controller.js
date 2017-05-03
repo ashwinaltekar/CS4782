@@ -1,33 +1,27 @@
 (function () {
     'use strict';
 
-    angular.module('csApp').controller('ViewController', view);
+    angular.module('csApp').controller('HomeController', home);
 
-    view.$inject = ['$scope', 'HomeService', 'ngDialog'];
-    function view($scope, HomeService, ngDialog) {
+    home.$inject = ['$scope', 'HomeService', 'ngDialog'];
+    function home($scope, HomeService, ngDialog) {
         var vm = this;
-        var tree = new TreeModel();
         vm.selectedNode = null;
         vm.selectedNodeScope = null;
         vm.fileName = "";
+        vm.industriesAndFrameworks = [];
+        vm.frameworkDetail = [];
+        vm.customFramework = [];
 
-        HomeService.get()
-            .then(function (response) {
-                vm.data = response;
-                vm.root = tree.parse(vm.data);
+        setup();
 
-                // var nodeFound = vm.root.first(idIn(["ID"]));
-                // if (nodeFound) {
-                //     console.log(nodeFound.getPath());
-                // } else {
-                //     console.error("!nodeFound");
-                // }
-            });
+        vm.setup = setup;
 
         vm.expandAll = expandAll;
         vm.collapseAll = collapseAll;
-        vm.toggleNode = toggleNode;
-
+        vm.toggleNodeCollapse = toggleNodeCollapse;
+        vm.toggleNodeCheck = toggleNodeCheck;
+        vm.cascadeCheckFromParent = cascadeCheckFromParent;
 
         vm.loadFile = loadFile;
         vm.importJson = importJson;
@@ -38,33 +32,28 @@
 
         vm.add = add;
         vm.edit = edit;
+        vm.edit = edit;
         vm.remove = remove;
 
-        vm.moveLastToTheBeginning = function() {
-            var a = vm.data.pop();
-            vm.data.splice(0, 0, a);
-        };
+        function setup() {
+            vm.showLoader = true;
+            HomeService.getFrameworkDetails("nistcsf")
+                .then(function (response) {
+                    vm.frameworkDetail = response[0].begin;
+                })
+                .finally(function () {
+                    vm.showLoader = false;
+                });
 
-        function getNodePathArray(root, selectedNode) {
-            for (var i = 0; i < root.children.length; i++) {
-                if (root.children[i] === selectedNode)
-                    return [selectedNode];
-                else {
-                    var path = getNodePathArray(root.children[i], selectedNode);
-                    if (path)
-                        return path.unshift(selectedNode);
-                }
-            }
-            return null;
-        }
+            vm.showLoader = true;
+            HomeService.getIndustriesAndFrameworks()
+                .then(function (response) {
+                    vm.industriesAndFrameworks = response;
+                })
+                .finally(function () {
+                    vm.showLoader = false;
+                });
 
-
-        // Helper function to check if a node id matches any of the given ids
-        function idIn(ids) {
-            console.log(ids);
-            return function (node) {
-                return ids.indexOf(node.model.uId) !== -1;
-            };
         }
 
         function expandAll() {
@@ -75,9 +64,38 @@
             $scope.$broadcast('angular-ui-tree:collapse-all');
         }
 
-        function toggleNode(node, event) {
+        function toggleNodeCollapse(node, event) {
             node.toggle();
             event.preventDefault();
+        }
+
+        function toggleNodeCheck(node, event) {
+            node.checked = !node.checked;
+
+            if (node.checked) {
+                vm.showLoader = true;
+                HomeService.getFrameworkDetails(node.code)
+                    .then(function (response) {
+                        vm.frameworkDetail = [].concat(vm.frameworkDetail, response[0].begin);
+                    })
+                    .finally(function () {
+                        vm.showLoader = false;
+                    });
+            }
+
+            // if (node.children.length) {
+            //     vm.cascadeCheckFromParent(node.children, node.checked);
+            // }
+            event.preventDefault();
+        }
+
+        function cascadeCheckFromParent(children, status) {
+            for (var i = 0; i < children.length; ++i) {
+                var node = children[i];
+                node.checked = status;
+                if (node.children.length)
+                    vm.cascadeCheckFromParent(node.children, status)
+            }
         }
 
         function selectNode(node, scope, event) {
@@ -201,36 +219,37 @@
         function loadFile() {
             vm.fileToImport = event.target.files[0];
 
-            vm.fileName = vm.fileToImport.name;
-            $scope.$apply();
+            if (vm.fileToImport) {
+                vm.fileName = vm.fileToImport.name;
+                $scope.$apply();
 
-            var fr = new FileReader();
+                var fr = new FileReader();
 
-            fr.onload = function(e) {
-                try {
-                    vm.parsedResult = JSON.parse(e.target.result);
-                    vm.parsedResultView = JSON.stringify(vm.parsedResult, null, 2);
+                fr.onload = function(e) {
+                    try {
+                        vm.parsedResult = JSON.parse(e.target.result);
 
-                    $scope.$apply();
-                } catch(e) {
-                    ngDialog.open({ template: 'view/import-error-dialog.html', className: 'ngdialog-theme-default' });
-                }
-            };
+                        $scope.$apply();
+                    } catch(e) {
+                        ngDialog.open({ template: 'view/import-error-dialog.html', className: 'ngdialog-theme-default' });
+                    }
+                };
 
-            fr.readAsText(vm.fileToImport);
+                fr.readAsText(vm.fileToImport);
+            }
         }
 
         function importJson() {
             if (vm.parsedResult) {
-                vm.data = vm.parsedResult;
+                vm.customFramework = vm.parsedResult;
             }
         }
 
-        function exportJson(data) {
+        function exportJson(col, data) {
             var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
             var dlAnchorElem = document.getElementById('exportHelper');
             dlAnchorElem.setAttribute("href", dataStr);
-            dlAnchorElem.setAttribute("download", "security-fw-" + new Date().getTime() + ".json");
+            dlAnchorElem.setAttribute("download", "security-fw-" + col + new Date().getTime() + ".json");
             dlAnchorElem.click();
         }
     }

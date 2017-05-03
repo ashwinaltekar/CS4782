@@ -6,19 +6,15 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider', 'treeConfig'];
     function config($stateProvider, $urlRouterProvider, treeConfig) {
 
-        $urlRouterProvider.otherwise('/view');
+        $urlRouterProvider.otherwise('/home');
         $stateProvider
+            .state('login', {
+                url: '/login',
+                templateUrl: 'login/login.html'
+            })
             .state('home', {
                 url: '/home',
                 templateUrl: 'home/home.html'
-            })
-            .state('view', {
-                url: '/view',
-                templateUrl: 'view/view.html'
-            })
-            .state('test',{
-                url: '/view/SetUpWizard',
-                templateUrl: 'view/SetUpWizard/setup.html'
             });
 
         treeConfig.defaultCollapsed = true; // collapse nodes by default

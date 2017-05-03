@@ -1,1 +1,98 @@
-<div>Home Page</div>
+<div class="col-xs-12 col" ng-controller="HomeController as vm">
+    <div class="text-center">
+        <a class="btn btn-info btn-xs" ng-click="vm.edit()" ng-disabled="!vm.selectedNode">
+            <i class="fa fa-pencil"></i> Selected
+        </a>
+        <a class="btn btn-danger btn-xs" ng-click="vm.remove()" ng-disabled="!vm.selectedNode">
+            <i class="fa fa-times"></i> Selected
+        </a>
+        <a class="btn btn-default btn-xs" ng-click="vm.clearSelection()" ng-disabled="!vm.selectedNode">
+            Clear Selected
+        </a>
+        <div class="btn-group btn-group-xs" uib-dropdown dropdown-append-to-body>
+            <button type="button" class="btn btn-warning" uib-dropdown-toggle>Export Column<span class="caret"></span></button>
+            <ul class="dropdown-menu" uib-dropdown-menu>
+                <li ng-click="vm.exportJson('first-col-', vm.industriesAndFrameworks)"><a href="#">1st Column</a></li>
+                <li ng-click="vm.exportJson('second-col-', vm.frameworkDetail)"><a href="#">2nd Column</a></li>
+                <li ng-click="vm.exportJson('third-col-', vm.customFramework)"><a href="#">3rd Column</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-xs-2 col">
+        <h4>Industries & Frameworks</h4>
+        <div ui-tree id="tree-framework" data-drag-enabled="false" data-nodrop-enabled="true">
+            <ol ui-tree-nodes ng-model="vm.industriesAndFrameworks">
+                <li ng-repeat="node in vm.industriesAndFrameworks" ui-tree-node data-expand-on-hover="true" ng-include="'home/tree-template-fw.html'" ng-if="!collapsed"></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="col-xs-4 col">
+        <h4>Framework(s) Details
+            <div class="pull-right">
+                <a class="btn btn-danger btn-xs" data-nodrag ng-click="vm.frameworkDetail = []"
+                   uib-tooltip="Cannot be undone!" tooltip-placement="left">
+                    Reset column
+                </a>
+            </div>
+        </h4>
+        <div ui-tree id="tree-root" data-nodrop-enabled="false" >
+            <ol ui-tree-nodes ng-model="vm.frameworkDetail">
+                <li ng-repeat="node in vm.frameworkDetail" ui-tree-node data-expand-on-hover="true" ng-include="'home/tree-template.html'" ng-if="!collapsed"></li>
+            </ol>
+        </div>
+        <span ng-if="!vm.frameworkDetail.length">Select frameworks in left column to populate this.</span>
+    </div>
+
+    <div class="col-xs-6 col">
+        <h4>Custom
+            <div class="pull-right">
+                <a class="btn btn-primary btn-xs" data-nodrag ng-click="vm.add(vm.customFramework)">
+                    <i class="fa fa-plus"></i> Node
+                </a>
+                <a class="btn btn-danger btn-xs" data-nodrag ng-click="vm.customFramework = []"
+                   uib-tooltip="Cannot be undone!" tooltip-placement="left">
+                    Reset column
+                </a>
+            </div>
+        </h4>
+        <div ui-tree id="tree-custom">
+            <ol ui-tree-nodes ng-model="vm.customFramework">
+                <li ng-repeat="node in vm.customFramework" ui-tree-node data-expand-on-hover="true" ng-include="'home/tree-template.html'" ng-if="!collapsed"></li>
+            </ol>
+        </div>
+        <span ng-if="!vm.customFramework.length">Drag-and-drop from left column to populate this.</span>
+
+        <!--<div ng-if="vm.selectedNode">-->
+            <!--<h3>{{vm.selectedNode.name}}</h3>-->
+            <!--<p ng-if="vm.selectedNode.description.length">-->
+                <!--<strong>Description</strong><br>-->
+                <!--{{vm.selectedNode.description}}-->
+            <!--</p>-->
+            <!--<div ng-if="vm.selectedNode.children.length">-->
+                <!--<strong>Children</strong><br>-->
+                <!--<li ng-repeat="child in vm.selectedNode.children">-->
+                    <!--{{child.name}}-->
+                <!--</li>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<hr>-->
+        <hr>
+        <div class="input-group">
+            <label class="input-group-btn">
+                <span class="btn btn-primary">
+                    Browse &hellip; <input type="file" id="upload-file-input" style="display: none;" custom-on-change="vm.loadFile">
+                </span>
+            </label>
+            <input type="text" ng-model="vm.fileName" class="form-control" readonly>
+
+            <span class="input-group-btn">
+                <button id="import" class="btn btn-success" ng-click="vm.importJson()"
+                        ng-disabled="!vm.fileName.length > 0" uib-tooltip="Will replace 3rd column! Cannot be undone!" tooltip-placement="left">Import</button>
+            </span>
+        </div>
+    </div>
+
+    <div ng-if="vm.showLoader" id="loading-indicator" class="loading-indicator">Loading&#8230;</div>
+</div>
