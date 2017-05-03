@@ -13,15 +13,9 @@
         vm.frameworkDetail = [];
         vm.customFramework = [];
 
-        HomeService.getFrameworkDetails("nistcsf")
-            .then(function (response) {
-                vm.frameworkDetail = response[0].begin;
-            });
+        setup();
 
-        HomeService.getIndustriesAndFrameworks()
-            .then(function (response) {
-                vm.industriesAndFrameworks = response;
-            });
+        vm.setup = setup;
 
         vm.expandAll = expandAll;
         vm.collapseAll = collapseAll;
@@ -41,6 +35,27 @@
         vm.edit = edit;
         vm.remove = remove;
 
+        function setup() {
+            vm.showLoader = true;
+            HomeService.getFrameworkDetails("nistcsf")
+                .then(function (response) {
+                    vm.frameworkDetail = response[0].begin;
+                })
+                .finally(function () {
+                    vm.showLoader = false;
+                });
+
+            vm.showLoader = true;
+            HomeService.getIndustriesAndFrameworks()
+                .then(function (response) {
+                    vm.industriesAndFrameworks = response;
+                })
+                .finally(function () {
+                    vm.showLoader = false;
+                });
+
+        }
+
         function expandAll() {
             $scope.$broadcast('angular-ui-tree:expand-all');
         }
@@ -58,9 +73,13 @@
             node.checked = !node.checked;
 
             if (node.checked) {
+                vm.showLoader = true;
                 HomeService.getFrameworkDetails(node.code)
                     .then(function (response) {
                         vm.frameworkDetail = [].concat(vm.frameworkDetail, response[0].begin);
+                    })
+                    .finally(function () {
+                        vm.showLoader = false;
                     });
             }
 
