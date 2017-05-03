@@ -129,7 +129,7 @@
         function addNodeDialog(list) {
             ngDialog
                 .openConfirm({
-                    template: 'view/modify-node-dialog.html',
+                    template: 'home/modify-node-dialog.html',
                     className: 'ngdialog-theme-default',
                     controller: ['$scope', function($scope) {
                         var vm = this;
@@ -157,7 +157,7 @@
         function editNodeDialog(selectedNode) {
             ngDialog
                 .openConfirm({
-                    template: 'view/modify-node-dialog.html',
+                    template: 'home/modify-node-dialog.html',
                     className: 'ngdialog-theme-default',
                     resolve: {
                         node: function () {
@@ -188,7 +188,7 @@
         function removeNodeDialog(selectedNode) {
             ngDialog
                 .openConfirm({
-                    template: 'view/remove-node-dialog.html',
+                    template: 'home/remove-node-dialog.html',
                     className: 'ngdialog-theme-default',
                     resolve: {
                         node: function () {
@@ -231,7 +231,7 @@
 
                         $scope.$apply();
                     } catch(e) {
-                        ngDialog.open({ template: 'view/import-error-dialog.html', className: 'ngdialog-theme-default' });
+                        ngDialog.open({ template: 'home/import-error-dialog.html', className: 'ngdialog-theme-default' });
                     }
                 };
 
